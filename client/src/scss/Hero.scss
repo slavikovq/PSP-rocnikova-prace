@@ -1,0 +1,98 @@
+@use "./variables";
+@use "./fonts";
+@use "./main-style.scss";
+
+.hero{
+    padding: 4% 6%;
+    display: flex;
+    align-items: center;
+    height: 84vh;
+}
+
+.hero-box{
+    width: 50%;
+}
+
+.hero-box h1{
+    color: white;
+    text-transform: uppercase;
+    font-size: 3rem;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+.hero-box p{
+    color: variables.$gray;
+    font-size:1.2rem;
+    letter-spacing: 1px;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem ;
+    font-weight: 400;
+}
+
+.hero-img{
+    max-width: 100%;
+    width: 700px;
+}
+
+.buttons {
+    display: flex;
+    gap: 30px;
+}
+
+.buttons button{
+    align-items: center;
+    display: flex;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    gap: 10px;
+    width: 160px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.buttons button:hover{
+    transform: scale(1.1);
+    transition: .2s ease;
+}
+
+.buttons button:active{
+    transform: scale(1);
+}
+
+.buttons a{
+    text-decoration: none;
+}
+
+.buttons img{
+    width: 30px;
+}
+
+#full-btn{
+    background-color: variables.$lighter-yellow;
+    border: 3px solid variables.$lighter-yellow;
+
+}
+
+
+#clear-btn{
+    background-color: #00000000;
+    border: 3px solid variables.$lighter-yellow;
+    color: variables.$lighter-yellow;
+}
+
+#clear-btn img{
+    color: variables.$lighter-yellow;
+}
+
+#hb1{
+    display: grid;
+    justify-content: left;
+}
+
+#hb2{
+    display: grid;
+    justify-content: right;
+}

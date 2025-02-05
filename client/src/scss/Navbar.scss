@@ -1,0 +1,98 @@
+@use "./variables";
+@use "./fonts";
+@use "./main-style.scss";
+
+
+.navbar{
+    padding: 2% 6%;
+    display: flex;
+    align-items: center;
+}
+
+
+.logo{
+    display: grid;
+    justify-content: left;
+    width: 50%;
+}
+
+.logo img{
+    max-width: 100%;
+    width: 140px;
+}
+
+.menu{
+    display: grid;
+    justify-content: right;
+    width: 50%;
+
+}
+
+.menu ul{
+    display: flex;
+    list-style: none;
+    gap: 80px;
+    align-items: center;
+    
+}
+
+.menu ul li{
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 410;
+    transition: .2s ease;
+    cursor: pointer;
+}
+
+.menu ul li:hover{
+    color: variables.$lighter-yellow;
+    transform: scale(1.1);
+    transition: .2s ease;
+}
+
+.menu ul li:active{
+    color: variables.$lighter-yellow;
+    transform: scale(1.0);
+    user-select: none;
+
+}
+
+.menu ul a {
+    text-decoration: none;
+}
+
+
+
+.menu ul button{
+    display: flex;
+    padding: 8px 12px;
+    align-items: center;
+    font-size: 1.25rem;
+    border-radius: 10px;
+    background-color: variables.$lighter-yellow;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s ease;
+} 
+
+.menu ul button:hover{
+    transform: scale(1.1);
+    transition: .2s ease;
+}
+
+.menu ul button:active{
+    transform: scale(1.0);
+}
+
+.menu ul button img{
+    width: 20px;
+}
+
+
+$gap:20px;
+.menu ul button div{
+    display: flex;
+    align-items: center;
+    width: calc($gap + 100px);
+    gap: $gap;
+}

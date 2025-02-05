@@ -1,0 +1,76 @@
+@use "./variables";
+@use "./fonts";
+
+.AV{
+    background-color: white;
+    padding: 4% 6%;
+    align-items: center;
+}
+
+.AV-title{
+    text-align: center;
+}
+
+.AV h6{
+    color: variables.$darker-yellow;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.AV h1{
+    font-size: 3rem;
+    font-weight: 600;
+    padding-bottom: 50px;
+}
+
+.AV-cards{
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    justify-content: center;
+}
+
+.AV-card{
+    background-color: variables.$bg-dark; 
+    max-width: 400px;
+    height: 550px;
+    border-radius: 10px;
+    transition: .5s ease;
+    user-select: none;
+}
+
+.AV-card:hover{
+    transform: scale(1.1);
+    transition: .5s ease;
+}
+
+.AV-card div{
+    position: relative;
+    text-align: center;
+}
+
+.AV-card p{
+    color: variables.$gray;    
+    font-size:1.2rem;
+    font-weight: 400;
+    line-height: 1.8rem;
+    margin: 30px;
+}
+
+.AV-card h2{
+    color: white;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 4px 2px 4px black;    
+    font-size: 1.6rem;
+}
+
+.AV-card img{
+    max-width: 100%;
+    filter: opacity(30%);
+    border-top-left-radius: 10px ;
+    border-top-right-radius:10px ;
+}

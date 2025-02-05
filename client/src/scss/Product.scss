@@ -1,0 +1,75 @@
+@use "./variables";
+@use "./fonts";
+
+.product{
+    padding: 4% 6%;
+    display: flex;
+    align-items: center;
+    height: 85vh;
+}
+
+.product-box{
+    width: 50%;
+}
+
+.product-box h6{
+    color: variables.$darker-yellow;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.product-box h1{
+    color: white;
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.product-box p{
+    color: variables.$gray;
+    font-size:1.2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem ;
+    font-weight: 400;
+    line-height: 1.8rem;
+}
+
+.product-boxes{
+    padding-left: 40%;
+}
+
+.usage{
+    display: flex;
+}
+
+.usage-box{
+    border: 2px solid white;
+    margin: 20px;
+    padding: 20px;
+    align-items: center;
+    color: white;
+    border-radius: 10px;
+    width: 150px;
+    height: 150px;
+    justify-content: center;
+    display: grid;
+    transition: .5s ease;
+    user-select: none;
+}
+
+.usage-box:hover{
+    transform: scale(1.1);
+    transition: .5s ease;
+    border: 2px solid variables.$darker-yellow;
+}
+
+.usage-box div{
+ text-align: center;
+}
+
+.usage-box img{
+    padding-bottom: 10px;
+}
+
+.usage img{
+    width: 45px;
+}
