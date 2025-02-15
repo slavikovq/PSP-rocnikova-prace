@@ -1,0 +1,26 @@
+@use "./variables";
+@use "./fonts";
+
+.footer{
+    padding: 4% 6%;
+    background-color: variables.$bg-dark;
+}
+
+.footer-box{
+    display: flex;
+    justify-content: center;
+    gap: 25%;
+    color: white;
+}
+
+.footer-box div{
+    text-align: center;
+}
+
+#linkedin{
+    width: 150px;
+}
+
+#CBIC{
+    width: 200px;
+}

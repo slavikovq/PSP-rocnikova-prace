@@ -1,0 +1,56 @@
+@use "./variables";
+@use "./fonts";
+
+.signin{
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+    padding-top: 100px;
+}
+
+
+.signin-form{ 
+    display: flex;
+    justify-content: center;
+    
+}
+
+.signin-form p, a{
+    color: variables.$gray;
+    text-decoration: none;
+}
+
+.signin-form a{
+   color: variables.$lighter-yellow; 
+}
+
+.signin-form input{
+    border-radius: 10px;
+    padding: 15px;
+    width: 300px;
+    margin: 10px;
+    border: 1px solid black;
+}
+
+.signin-form button{
+    border-radius: 10px;
+    padding: 15px;
+    width: 300px;
+    margin: 10px;
+    background-color: variables.$lighter-yellow;
+    border: none;
+    transition: .4s ease;
+    font-size: 1.2rem;
+}
+
+.signin button:hover{
+    transform: scale(1.1);
+    transition: .4s ease;
+    cursor: pointer;
+}
+.signin button:active{
+    transform: scale(0.9);
+    transition: .4s ease;
+
+    cursor: pointer;
+}

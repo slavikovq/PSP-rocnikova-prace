@@ -6,6 +6,7 @@ import LOC from "../../assets/img/low-operational-cost.png";
 export default function AV() {
   return (
     <>
+    <div id="Added-Value">
       <div className="AV">
         <div className="AV-title">
             <h6>— features —</h6>
@@ -53,6 +54,7 @@ export default function AV() {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );

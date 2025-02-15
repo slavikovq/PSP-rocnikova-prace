@@ -1,0 +1,57 @@
+@use "./variables";
+@use "./fonts";
+
+.features{
+    padding: 4% 6%;
+}
+
+.features-box{
+    text-align: center;
+    padding-bottom: 50px;
+
+}
+
+.features-box h6{
+    color: variables.$darker-yellow;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.features-box h1{
+    color: white;
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.features-icons{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    gap: 25%;
+    background-color: white;
+    padding: 3%;  
+    border-radius: 5px; 
+}
+
+.features-icon p{
+    font-size:1.2rem;
+    font-weight: 400;
+}
+
+.features-icon h2{
+    text-transform: uppercase;
+    font-size: 2rem;
+}
+
+.features-icon{
+    line-height: 3rem;
+    width: 15%;
+}
+
+#img-width{
+    width: 80px;
+}
+
+#img-height{
+    height: 80px;
+}

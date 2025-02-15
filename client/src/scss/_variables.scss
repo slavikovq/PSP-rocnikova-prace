@@ -2,3 +2,20 @@ $bg-dark: #0E0C13;
 $gray: #898888;
 $lighter-yellow: #F0CE77;
 $darker-yellow: #CFAB4E;
+
+*{
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+  }
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.25);
+  }
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: $darker-yellow;
+  }
+
+  

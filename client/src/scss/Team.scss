@@ -1,0 +1,51 @@
+@use "./variables";
+@use "./fonts";
+
+
+.team{
+    background-color: white;
+    padding: 4% 6%;        
+}
+
+.team-row{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 4%;
+    gap: 50px;
+  
+}
+
+.team-title{
+    text-align: center;
+}
+
+
+.team-title h6{
+    color: variables.$darker-yellow;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.team-title h1{
+    font-size: 3rem;
+    font-weight: 600;
+    padding-bottom: 50px;
+}
+
+.person-card{
+    width: 400px;
+}
+
+.person-card img{
+    width: 200px;
+    transition: .5s;
+    padding-bottom: 10px;
+}
+
+.person-card img:hover{
+    transform: scale(1.1);
+    transition: .5s;
+}
+
+
