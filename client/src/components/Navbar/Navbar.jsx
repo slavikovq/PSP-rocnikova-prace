@@ -3,7 +3,6 @@ import logo from "../../assets/img/logo.png"
 import user from "../../assets/icons/user.svg"
 import { Link } from "react-router-dom"
 import { HashLink } from 'react-router-hash-link';
-import { Navigate } from "react-router-dom";
 
 export default function Navbar() {
   return (

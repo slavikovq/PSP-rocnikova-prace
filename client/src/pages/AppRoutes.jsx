@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route} from "react-router-dom"
 import Home from "./Home/Home"
 import SignIn from "./SignIn/SignIn"
 import SignUp from "./SignUp/SignUp"
-import Admin from "./Admin/Admin"
+import AdminHome from "../components/AdminHome/AdminHome"
 
 
 export default function AppRoutes() {
@@ -13,7 +13,7 @@ export default function AppRoutes() {
                     <Route path="/" element={<Home/>}/>
                     <Route path="/sign-in" element={<SignIn/>}/>
                     <Route path="/sign-up" element={<SignUp/>}/>
-                    <Route path="/admin" element={<Admin/>}/>
+                    <Route path="/admin" element={<AdminHome/>}/>
                 </Routes>
             </BrowserRouter>
         </>
