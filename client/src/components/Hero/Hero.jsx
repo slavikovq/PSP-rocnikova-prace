@@ -20,7 +20,7 @@ export default function Hero() {
           </p>
           <div className="buttons">
             <Link to={"/"}><button id="full-btn"><img src={phone} alt="" />Contact</button></Link>
-            <Link to={"/"}><button id="clear-btn"><img src={news} alt="" />News</button></Link>
+            <Link to={"/news"}><button id="clear-btn"><img src={news} alt="" />News</button></Link>
           </div>
         </div>
         <div className="hero-box" id="hb2">
