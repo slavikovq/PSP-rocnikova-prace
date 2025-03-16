@@ -14,7 +14,7 @@ export default function AppRoutes() {
                     <Route path="/" element={<Home/>}/>
                     <Route path="/sign-in" element={<SignIn/>}/>
                     <Route path="/sign-up" element={<SignUp/>}/>
-                    <Route path="/admin" element={<Admin/>}/>
+                    <Route path="/panel" element={<Admin/>}/>
                     <Route path="/news" element={<News/>}/>
                     <Route path="/article" element={<ArticlePage/>}/>
                 </Routes>

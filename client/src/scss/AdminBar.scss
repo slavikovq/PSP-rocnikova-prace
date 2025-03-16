@@ -64,6 +64,13 @@ h1{
     width: 20px;
 }
 
+#email{
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 #name{
     text-align: left;
     color: white;

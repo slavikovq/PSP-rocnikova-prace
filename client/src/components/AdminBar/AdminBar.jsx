@@ -4,12 +4,16 @@ import editUser from "../../assets/icons/edit-user.svg";
 import dashboard from "../../assets/icons/dashboard.svg";
 import home from "../../assets/icons/home.svg";
 import plus from "../../assets/icons/plus.svg";
-import user from "../../assets/icons/user-yell.svg";
+import userPfp from "../../assets/icons/user-yell.svg";
 import leave from "../../assets/icons/leave.svg";
 import "../../scss/AdminBar.scss";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../context/AuthProvider";
 
 export default function AdminBar() {
+
+  const{ logout, user } = useAuth();
+
   return (
     <>
       <nav className="sidebar">
@@ -54,14 +58,14 @@ export default function AdminBar() {
         </ul>
         <div className="user">
           <div>
-            <img src={user} alt="" id="user" />
+            <img src={userPfp} alt="" id="user" />
           </div>
           <div>
-            <p id="name">Jmeno Prijmeni</p>
-            <p>emailova@adresa.cz</p>
+            <p id="name">{user.firstName} {user.lastName}</p>
+            <p id="email">{user.email}</p>
           </div>
           <Link to={"/"}>
-            <img src={leave} alt="" id="leave" />
+            <img src={leave} alt="" id="leave" onClick={logout}/>
           </Link>
         </div>
       </nav>

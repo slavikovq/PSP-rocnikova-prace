@@ -29,15 +29,13 @@ exports.register = async (req, res) => {
   try {
     const { firstName, lastName, email, password } = req.body;
     if (!(firstName && lastName && email && password)) {
-      res
-        .status(400)
-        .json({ message: "You must fill in all required fields!" });
+      return res.status(400).json({ message: "You must fill in all required fields!" });
     }
 
     const userExist = await User.findOne({ email });
 
     if (userExist) {
-      res.status(400).json({ message: "Email is already taken!" });
+      return res.status(400).json({ message: "Email is already taken!" });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -54,6 +52,19 @@ exports.register = async (req, res) => {
     });
 
     res.status(201).json({ token, user: { firstName, lastName, email } });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+exports.getUser = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.userId).select("-password");
+    if (!user) {
+      return res.status(404).json({ message: "User not found!" });
+    }
+
+    res.status(200).send({ message: "User found!", payload: user });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
