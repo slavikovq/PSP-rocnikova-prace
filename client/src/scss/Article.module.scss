@@ -1,0 +1,147 @@
+@use "./variables";
+@use "./fonts";
+
+.articleCard{
+    display: flex;
+    justify-content: center;
+    height: 700px;
+}
+
+.article {
+    width: 1700px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+.postheader{
+    display: flex;
+    gap: 10px;
+}
+
+.postheader h1 {
+    font-size: 1.7rem;
+    color: variables.$darker-yellow;
+  }
+
+.namedate {
+    display: flex;
+    gap: 10px;
+  }
+  
+
+  #calendar {
+    width: 15px;
+  }
+  
+  .date {
+    display: flex;
+    gap: 5px;
+    color: variables.$gray;
+  }
+  
+  #publisher {
+    font-weight: 600;
+  }
+  
+  #dot {
+    color: variables.$gray;
+  }
+  
+  #user{
+    width: 50px;
+  }
+ 
+  .text{
+    display: block;
+    flex: 0;
+    padding: 18px;
+    max-height: 100%;
+    height: 500px;
+    position: relative;
+    overflow: auto;
+  }
+
+  .postfooter {
+    background-color: rgba(128, 128, 128, 0.212);
+    padding: 15px;
+    display: flex;
+    border-radius: 10px;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 130px;
+    width: 88%;
+    
+  }
+
+  .rating {
+    display: flex;
+    font-weight: 600;
+    gap: 20px;
+  }
+  
+  .rating div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+  }
+  
+  #rate {
+    width: 30px;
+    cursor: pointer;
+    transition: .2s ease;
+  }
+  
+  #rate:hover{
+    transform: scale(1.2);
+    transition: .2s ease;
+  }
+  
+  #read{
+    background-color: variables.$lighter-yellow;
+    border-radius: 5px;
+    border: 0;
+    padding: 15px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    width: 200px;
+    cursor: pointer;
+    transition: .2s ease;
+  }
+  
+  #read:hover{
+    transform: scale(1.1);
+    transition: .2s ease;
+  }
+
+
+  .badge {
+    position: relative; 
+    border-radius: 15px;
+  }
+  
+  .datebadge {
+    position: absolute;
+    top: 80px;
+    left: -30px;
+    background-color: variables.$lighter-yellow;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    padding-block: 20px;
+  }
+  
+  .datebadge{
+    text-transform: uppercase;
+  }
+  
+  #day{
+    font-size: 1.4rem;
+  }
+  
+  #month{
+    font-size: 1rem;
+  }

@@ -4,6 +4,7 @@ import SignIn from "./SignIn/SignIn"
 import SignUp from "./SignUp/SignUp"
 import Admin from "./Admin/Admin"
 import News from "./News/News"
+import ArticlePage from "./ArticlePage/ArticlePage"
 
 export default function AppRoutes() {
     return(
@@ -15,6 +16,7 @@ export default function AppRoutes() {
                     <Route path="/sign-up" element={<SignUp/>}/>
                     <Route path="/admin" element={<Admin/>}/>
                     <Route path="/news" element={<News/>}/>
+                    <Route path="/article" element={<ArticlePage/>}/>
                 </Routes>
             </BrowserRouter>
         </>
