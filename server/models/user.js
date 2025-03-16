@@ -6,7 +6,7 @@ const userSchema = mongoose.Schema({
     email: { type: String, unique: true, required: true, match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/ },
     password: {type: String, required: true},
     pfp: {type: String, default: null},
-    role:{type: String, enum:["user", "admin"], default:"user"},
+    role:{type: String, enum:["user", "admin", "owner"], default:"user"},
     dateCreated: {type: Date, default: Date.now}
 })
 

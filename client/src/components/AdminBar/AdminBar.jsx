@@ -6,13 +6,14 @@ import home from "../../assets/icons/home.svg";
 import plus from "../../assets/icons/plus.svg";
 import userPfp from "../../assets/icons/user-yell.svg";
 import leave from "../../assets/icons/leave.svg";
+import heart from "../../assets/icons/heart.svg";
+import owner from "../../assets/icons/owner.svg";
 import "../../scss/AdminBar.scss";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider";
 
 export default function AdminBar() {
-
-  const{ logout, user } = useAuth();
+  const { logout, user } = useAuth();
 
   return (
     <>
@@ -28,12 +29,18 @@ export default function AdminBar() {
               <span>Home</span>
             </li>
           </Link>
-          <Link to="/">
-            <li className="button">
-              <img src={dashboard} alt="" />
-              <span>Dashboard</span>
-            </li>
-          </Link>
+
+          {user.role === "admin" && user.role === "owner" ? (
+            <>
+              <Link to="/">
+                <li className="button">
+                  <img src={dashboard} alt="" />
+                  <span>Dashboard</span>
+                </li>
+              </Link>
+            </>
+          ) : null}
+
           <Link to="/">
             <li className="button">
               <img src={editUser} alt="" />
@@ -41,31 +48,55 @@ export default function AdminBar() {
             </li>
           </Link>
 
+          {user.role === "owner" ? (
+            <>
+              <Link to="/">
+            <li className="button">
+              <img src={owner} alt="" />
+              <span>Add administrators</span>
+            </li>
+          </Link>
+            </>
+          ) : null}
+
+
           <hr class="hr-text gradient" data-content="news" />
 
           <Link to="/">
             <li className="button">
-              <img src={plus} alt="" />
-              <span>Add post</span>
+              <img src={heart} alt="" />
+              <span>Liked posts</span>
             </li>
           </Link>
-          <Link to="/">
-            <li className="button">
-              <img src={edit} alt="" />
-              <span>Edit post</span>
-            </li>
-          </Link>
+          {user.role === "admin" || user.role === "owner"  ? (
+            <>
+              <Link to="/">
+                <li className="button">
+                  <img src={plus} alt="" />
+                  <span>Add post</span>
+                </li>
+              </Link>
+              <Link to="/">
+                <li className="button">
+                  <img src={edit} alt="" />
+                  <span>Edit post</span>
+                </li>
+              </Link>
+            </>
+          ) : null}
         </ul>
         <div className="user">
           <div>
             <img src={userPfp} alt="" id="user" />
           </div>
           <div>
-            <p id="name">{user.firstName} {user.lastName}</p>
+            <p id="name">
+              {user.firstName} {user.lastName}
+            </p>
             <p id="email">{user.email}</p>
           </div>
           <Link to={"/"}>
-            <img src={leave} alt="" id="leave" onClick={logout}/>
+            <img src={leave} alt="" id="leave" onClick={logout} />
           </Link>
         </div>
       </nav>
