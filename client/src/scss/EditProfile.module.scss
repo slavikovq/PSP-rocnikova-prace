@@ -1,0 +1,64 @@
+@use "./variables";
+@use "./fonts";
+
+.page {
+  display: flex;
+  width: 100%;
+}
+
+.edit {
+  width: 82%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+#names{
+  display: flex;
+}
+
+#firstName, #lastName {
+  display: flex;
+  justify-content: space-between;
+  width: 350px;
+  height: 40px;
+}
+
+
+#email, #password {
+  width: 100%;
+  height: 40px;
+  padding: 5px;
+
+}
+
+.edit button{
+  background-color: variables.$darker-yellow;
+  width: 180px;
+  border-radius: 5px;
+  padding: 10px;
+  transition: .1s ease;
+  font-size: 1rem;
+  margin-top: 5px;
+
+}
+.edit button:hover{
+  transform: scale(1.1);
+  transition: .1s ease;
+}
+
+.form{
+  width: 800px;
+  height: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form span{
+  color: white;
+}
+
+.form div{
+  padding-block: 5px;
+}

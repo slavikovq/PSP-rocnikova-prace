@@ -1,3 +1,6 @@
 @use "./variables";
 @use "./fonts";
 
+.page {
+  display: flex;
+}

@@ -1,0 +1,14 @@
+@use "./variables";
+@use "./fonts";
+
+.page {
+  display: flex;
+  width: 100%;
+}
+
+.post {
+  width: 82%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}

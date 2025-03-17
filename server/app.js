@@ -14,7 +14,7 @@ mongoose
 .catch((err) => console.log(err));
 
 
-const indexRouter = require('./routes/index');
+
 const userRouter = require("./routes/user");
 
 
@@ -33,7 +33,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
 app.use("/user", userRouter);
 
 

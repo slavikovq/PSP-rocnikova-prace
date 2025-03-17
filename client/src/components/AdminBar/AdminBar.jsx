@@ -30,9 +30,9 @@ export default function AdminBar() {
             </li>
           </Link>
 
-          {user.role === "admin" && user.role === "owner" ? (
+          {user.role === "admin" || user.role === "owner" ? (
             <>
-              <Link to="/">
+              <Link to="/panel">
                 <li className="button">
                   <img src={dashboard} alt="" />
                   <span>Dashboard</span>
@@ -41,7 +41,7 @@ export default function AdminBar() {
             </>
           ) : null}
 
-          <Link to="/">
+          <Link to="/panel/edit-profile">
             <li className="button">
               <img src={editUser} alt="" />
               <span>Edit profile</span>
@@ -50,7 +50,7 @@ export default function AdminBar() {
 
           {user.role === "owner" ? (
             <>
-              <Link to="/">
+              <Link to="/panel/add-admin">
             <li className="button">
               <img src={owner} alt="" />
               <span>Add administrators</span>
@@ -62,7 +62,7 @@ export default function AdminBar() {
 
           <hr class="hr-text gradient" data-content="news" />
 
-          <Link to="/">
+          <Link to="/panel/liked-posts">
             <li className="button">
               <img src={heart} alt="" />
               <span>Liked posts</span>
@@ -70,13 +70,13 @@ export default function AdminBar() {
           </Link>
           {user.role === "admin" || user.role === "owner"  ? (
             <>
-              <Link to="/">
+              <Link to="/panel/add-post">
                 <li className="button">
                   <img src={plus} alt="" />
                   <span>Add post</span>
                 </li>
               </Link>
-              <Link to="/">
+              <Link to="/panel/edit-post">
                 <li className="button">
                   <img src={edit} alt="" />
                   <span>Edit post</span>
