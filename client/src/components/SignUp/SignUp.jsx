@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import "../../scss/SignUp.scss";
+import signUpStyles from "../../scss/SignUp.module.scss";
 import { useAuth } from "../../context/AuthProvider";
 import { useEffect, useState } from "react";
 import { registerUser } from "../../models/user";
@@ -31,9 +31,9 @@ export default function SignUpForm() {
 
   return (
     <>
-      <div className="signup">
+      <div className={signUpStyles.signup}>
         <h2>Sign Up</h2>
-        <div className="signup-form">
+        <div className={signUpStyles.signupForm}>
           <form>
             <div>
               <input type="text" placeholder="First name" name="firstName" onChange={handleInput}/>

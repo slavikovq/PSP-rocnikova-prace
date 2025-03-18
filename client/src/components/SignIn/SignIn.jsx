@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider";
 import { useEffect, useState } from "react";
-import "../../scss/SignIn.scss";
+import signInStyles from "../../scss/SignIn.module.scss";
 import { loginUser } from "../../models/user";
 
 export default function SignInForm() {
@@ -31,9 +31,9 @@ export default function SignInForm() {
     };
   return (
     <>
-    <div className="signin">
+    <div className={signInStyles.signin}>
     <h2>Sign In</h2>
-    <div className="signin-form">
+    <div className={signInStyles.signinForm}>
       <form>
         <div>
         <input type="email" placeholder="Enter your email" name="email" onChange={handleInput} />

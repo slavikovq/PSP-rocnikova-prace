@@ -5,25 +5,25 @@
     padding: 4% 6%;
 }
 
-.features-box{
+.featuresBox{
     text-align: center;
     padding-bottom: 50px;
 
 }
 
-.features-box h6{
+.featuresBox h6{
     color: variables.$darker-yellow;
     text-transform: uppercase;
     font-size: 0.8rem;
 }
 
-.features-box h1{
+.featuresBox h1{
     color: white;
     font-size: 3rem;
     font-weight: 600;
 }
 
-.features-icons{
+.featuresIcons{
     display: flex;
     text-align: center;
     justify-content: center;
@@ -33,25 +33,25 @@
     border-radius: 5px; 
 }
 
-.features-icon p{
+.featuresIcon p{
     font-size:1.2rem;
     font-weight: 400;
 }
 
-.features-icon h2{
+.featuresIcon h2{
     text-transform: uppercase;
     font-size: 2rem;
 }
 
-.features-icon{
+.featuresIcon{
     line-height: 3rem;
     width: 15%;
 }
 
-#img-width{
+#imgWidth{
     width: 80px;
 }
 
-#img-height{
+#imgHeight{
     height: 80px;
 }

@@ -1,15 +1,15 @@
-import "../../scss/About.scss"
+import aboutStyles from "../../scss/About.module.scss"
 import about from "../../assets/img/about-img.png"
 
 export default function About() {
     return(
         <>
         <div id="About-Us">
-            <div className="about">
-                <div className="about-box">
+            <div className={aboutStyles.about}>
+                <div className={aboutStyles.aboutBox}>
                     <img src={about} alt="" />
                 </div>
-                <div className="about-box">
+                <div className={aboutStyles.aboutBox}>
                     <h6>— plasma peening</h6>
                     <h1>About us</h1>
                     <p>PSP Technologies develops a pocket-size compact shock wave generator for plasma shock peening, an advanced surface engineering technique. </p>

@@ -8,7 +8,7 @@ import userPfp from "../../assets/icons/user-yell.svg";
 import leave from "../../assets/icons/leave.svg";
 import heart from "../../assets/icons/heart.svg";
 import owner from "../../assets/icons/owner.svg";
-import "../../scss/AdminBar.scss";
+import panelStyles from "../../scss/AdminBar.module.scss";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider";
 
@@ -17,14 +17,16 @@ export default function AdminBar() {
 
   return (
     <>
-      <nav className="sidebar">
+      <nav className={panelStyles.sidebar}>
         <div>
-          <img src={logo} alt="" id="logo" />
+          <Link to={"/"}>
+            <img src={logo} alt="" id={panelStyles.logo} />
+          </Link>
         </div>
-        <hr class="hr-line gradient" />
+        <hr className={panelStyles.hrLine} />
         <ul>
           <Link to="/">
-            <li className="button">
+            <li className={panelStyles.button}>
               <img src={home} alt="" />
               <span>Home</span>
             </li>
@@ -33,7 +35,7 @@ export default function AdminBar() {
           {user.role === "admin" || user.role === "owner" ? (
             <>
               <Link to="/panel">
-                <li className="button">
+                <li className={panelStyles.button}>
                   <img src={dashboard} alt="" />
                   <span>Dashboard</span>
                 </li>
@@ -42,7 +44,7 @@ export default function AdminBar() {
           ) : null}
 
           <Link to="/panel/edit-profile">
-            <li className="button">
+            <li className={panelStyles.button}>
               <img src={editUser} alt="" />
               <span>Edit profile</span>
             </li>
@@ -51,33 +53,32 @@ export default function AdminBar() {
           {user.role === "owner" ? (
             <>
               <Link to="/panel/add-admin">
-            <li className="button">
-              <img src={owner} alt="" />
-              <span>Add administrators</span>
-            </li>
-          </Link>
+                <li className={panelStyles.button}>
+                  <img src={owner} alt="" />
+                  <span>Add administrators</span>
+                </li>
+              </Link>
             </>
           ) : null}
 
-
-          <hr class="hr-text gradient" data-content="news" />
+          <hr className={panelStyles.hrText} data-content="news" />
 
           <Link to="/panel/liked-posts">
-            <li className="button">
+            <li className={panelStyles.button}>
               <img src={heart} alt="" />
               <span>Liked posts</span>
             </li>
           </Link>
-          {user.role === "admin" || user.role === "owner"  ? (
+          {user.role === "admin" || user.role === "owner" ? (
             <>
               <Link to="/panel/add-post">
-                <li className="button">
+                <li className={panelStyles.button}>
                   <img src={plus} alt="" />
                   <span>Add post</span>
                 </li>
               </Link>
               <Link to="/panel/edit-post">
-                <li className="button">
+                <li className={panelStyles.button}>
                   <img src={edit} alt="" />
                   <span>Edit post</span>
                 </li>
@@ -85,18 +86,18 @@ export default function AdminBar() {
             </>
           ) : null}
         </ul>
-        <div className="user">
+        <div className={panelStyles.user}>
           <div>
-            <img src={userPfp} alt="" id="user" />
+            <img src={userPfp} alt="" id={panelStyles.user} />
           </div>
           <div>
-            <p id="name">
+            <p id={panelStyles.name}>
               {user.firstName} {user.lastName}
             </p>
-            <p id="email">{user.email}</p>
+            <p id={panelStyles.email}>{user.email}</p>
           </div>
           <Link to={"/"}>
-            <img src={leave} alt="" id="leave" onClick={logout} />
+            <img src={leave} alt="" id={panelStyles.leave} onClick={logout} />
           </Link>
         </div>
       </nav>

@@ -1,4 +1,4 @@
-import "../../scss/Post.scss";
+import postStyles from "../../scss/Post.module.scss";
 import user from "../../assets/icons/user-yell.svg";
 import like from "../../assets/icons/thumbs-up.svg";
 import dislike from "../../assets/icons/thumbs-down.svg";
@@ -8,31 +8,31 @@ import { Link } from "react-router-dom";
 export default function Post() {
   return (
     <>
-      <div className="post">
-        <div className="badge">
-          <div className="date-badge">
-            <p id="day">04</p>
-            <p id="month">kys</p>
+      <div className={postStyles.post}>
+        <div className={postStyles.badge}>
+          <div className={postStyles.dateBadge}>
+            <p id={postStyles.day}>04</p>
+            <p id={postStyles.month}>kys</p>
           </div>
         </div>
 
-        <div className="post-header">
+        <div className={postStyles.postHeader}>
           <div>
-            <img src={user} id="user" alt="" />
+            <img src={user} id={postStyles.user} alt="" />
           </div>
           <div>
             <h1>New website</h1>
-            <div className="name-date">
-              <p id="publisher">Barbora Slavíková</p>
-              <p id="dot">●</p>
-              <div className="date">
-                <img src={calendar} alt="" id="calendar" />
+            <div className={postStyles.nameDate}>
+              <p id={postStyles.publisher}>Barbora Slavíková</p>
+              <p id={postStyles.dot}>●</p>
+              <div className={postStyles.date}>
+                <img src={calendar} alt="" id={postStyles.calendar} />
                 <p>04.03.2025</p>
               </div>
             </div>
           </div>
         </div>
-        <div className="article">
+        <div className={postStyles.article}>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
             necessitatibus enim optio repudiandae vel vero, explicabo minus!
@@ -49,19 +49,19 @@ export default function Post() {
             obcaecati itaque adipisci odit
           </p>
         </div>
-        <div className="post-footer">
-          <div className="rating">
+        <div className={postStyles.postFooter}>
+          <div className={postStyles.rating}>
             <div>
               <p>0</p>
-              <img src={like} alt="" id="rate" />
+              <img src={like} alt="" id={postStyles.rate} />
             </div>
             <div>
               <p>5</p>
-              <img src={dislike} alt="" id="rate" />
+              <img src={dislike} alt="" id={postStyles.rate} />
             </div>
           </div>
           <Link to={"/article"}>
-            <button id="read">READ FULL ARTICLE</button>
+            <button id={postStyles.read}>READ FULL ARTICLE</button>
           </Link>
         </div>
       </div>

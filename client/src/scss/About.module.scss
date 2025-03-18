@@ -9,22 +9,23 @@
     height: 90vh;
 }
 
-.about-box{
+.aboutBox{
     width: 50%;
 }
 
-.about-box h6{
+.aboutBox h6{
     color: variables.$darker-yellow;
     text-transform: uppercase;
     font-size: 0.8rem;
 }
 
-.about-box h1{
+.aboutBox h1{
     font-size: 3rem;
     font-weight: 600;
+    color:black;
 }
 
-.about-box p{
+.aboutBox p{
     font-size:1.2rem;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem ;

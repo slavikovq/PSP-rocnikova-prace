@@ -8,18 +8,17 @@
   border-radius: 10px;
 }
 
-.post-header {
+.postHeader {
   display: flex;
   gap: 10px;
 }
 
-
-.post-header h1 {
+.postHeader h1 {
   font-size: 1.7rem;
   color: variables.$darker-yellow;
 }
 
-.name-date {
+.nameDate {
   display: flex;
   gap: 10px;
 }
@@ -47,17 +46,20 @@
   max-height: 250px;
   position: relative;
   overflow: hidden;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0));
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 60%,
+    rgba(0, 0, 0, 0)
+  );
 }
 
-.post-footer {
+.postFooter {
   background-color: rgba(128, 128, 128, 0.212);
   padding: 15px;
   display: flex;
   border-radius: 10px;
   justify-content: space-between;
   align-items: center;
-
 }
 
 .rating {
@@ -76,15 +78,15 @@
 #rate {
   width: 30px;
   cursor: pointer;
-  transition: .2s ease;
+  transition: 0.2s ease;
 }
 
-#rate:hover{
+#rate:hover {
   transform: scale(1.2);
-  transition: .2s ease;
+  transition: 0.2s ease;
 }
 
-#read{
+#read {
   background-color: variables.$lighter-yellow;
   border-radius: 5px;
   border: 0;
@@ -93,20 +95,20 @@
   font-size: 0.8rem;
   width: 200px;
   cursor: pointer;
-  transition: .2s ease;
+  transition: 0.2s ease;
 }
 
-#read:hover{
+#read:hover {
   transform: scale(1.1);
-  transition: .2s ease;
+  transition: 0.2s ease;
 }
 
 .badge {
-  position: relative; 
+  position: relative;
   border-radius: 15px;
 }
 
-.date-badge {
+.dateBadge {
   position: absolute;
   top: 60px;
   left: -50px;
@@ -116,16 +118,13 @@
   text-align: center;
   border-radius: 5px;
   padding-block: 20px;
-}
-
-.date-badge{
   text-transform: uppercase;
 }
 
-#day{
+#day {
   font-size: 1.4rem;
 }
 
-#month{
+#month {
   font-size: 1rem;
 }

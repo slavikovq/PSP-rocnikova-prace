@@ -1,4 +1,4 @@
-import "../../scss/Navbar.scss";
+import navbarStyles from "../../scss/Navbar.module.scss";
 import logo from "../../assets/img/logo.png";
 import userPfp from "../../assets/icons/user.svg";
 import { Link } from "react-router-dom";
@@ -10,13 +10,13 @@ export default function Navbar() {
   console.log(user);
   return (
     <>
-      <nav className="navbar">
-        <div className="logo">
+      <nav className={navbarStyles.navbar}>
+        <div className={navbarStyles.logo}>
           <Link to={"/"}>
             <img src={logo} alt="logo" />
           </Link>
         </div>
-        <div className="menu">
+        <div className={navbarStyles.menu}>
           <ul>
             <Link to={"/"}>
               <li>Home</li>

@@ -1,36 +1,37 @@
 @use "./variables";
 @use "./fonts";
 
-.AV{
+.av{
     background-color: white;
     padding: 4% 6%;
     align-items: center;
 }
 
-.AV-title{
+.avTitle{
     text-align: center;
 }
 
-.AV h6{
+.av h6{
     color: variables.$darker-yellow;
     text-transform: uppercase;
     font-size: 0.8rem;
 }
 
-.AV h1{
+.av h1{
     font-size: 3rem;
     font-weight: 600;
     padding-bottom: 50px;
+    color: black;
 }
 
-.AV-cards{
+.avCards{
     display: flex;
     align-items: center;
     gap: 5%;
     justify-content: center;
 }
 
-.AV-card{
+.avCard{
     background-color: variables.$bg-dark; 
     max-width: 400px;
     height: 550px;
@@ -39,17 +40,17 @@
     user-select: none;
 }
 
-.AV-card:hover{
+.avCard:hover{
     transform: scale(1.1);
     transition: .5s ease;
 }
 
-.AV-card div{
+.avCard div{
     position: relative;
     text-align: center;
 }
 
-.AV-card p{
+.avCard p{
     color: variables.$gray;    
     font-size:1.2rem;
     font-weight: 400;
@@ -57,7 +58,7 @@
     margin: 30px;
 }
 
-.AV-card h2{
+.avCard h2{
     color: white;
     text-transform: uppercase;
     position: absolute;
@@ -68,7 +69,7 @@
     font-size: 1.6rem;
 }
 
-.AV-card img{
+.avCard img{
     max-width: 100%;
     filter: opacity(30%);
     border-top-left-radius: 10px ;

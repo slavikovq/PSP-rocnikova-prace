@@ -83,7 +83,7 @@ h1{
 
 // HR
 
-.hr-text {
+.hrText {
     border: 0;
     font-size: 14px;
     height: 1.8em;
@@ -93,7 +93,7 @@ h1{
     text-transform: uppercase;
   }
 
-  .hr-text::before {
+  .hrText::before {
     content: "";
     background: linear-gradient(to right, transparent, variables.$lighter-yellow, transparent);
     position: absolute;
@@ -103,7 +103,7 @@ h1{
     height: 1px;
 }
 
-.hr-text::after {
+.hrText::after {
     background-color: variables.$bg-dark;
     color: variables.$lighter-yellow;
     content: attr(data-content);
@@ -112,14 +112,14 @@ h1{
     position: relative;
 }
 
-.hr-line {
+.hrLine {
     border: 0;
     height: 1.8em;
     line-height: 1em;
     position: relative;
 }
 
-.hr-line::before {
+.hrLine::before {
     content: "";
     background: linear-gradient(to right, transparent, variables.$lighter-yellow, transparent); 
     position: absolute;

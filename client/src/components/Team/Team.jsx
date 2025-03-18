@@ -1,4 +1,4 @@
-import "../../scss/Team.scss";
+import teamStyles from "../../scss/Team.module.scss";
 import circle from "../../assets/team-photos/circle.png";
 import slavik from "../../assets/team-photos/slavik.png";
 import bajer from "../../assets/team-photos/bajer.png";
@@ -14,14 +14,14 @@ export default function Team() {
     <>
     <div id="Team">
 
-      <div className="team">
-      <div className="team-title">
+      <div className={teamStyles.team}>
+      <div className={teamStyles.teamTitle}>
         <h6>— Team —</h6>
         <h1>Meet the team</h1>
       </div>
-        <div className="team-cards">
-        <div className="team-row">
-          <div className="person-card">
+        <div className={teamStyles.teamCards}>
+        <div className={teamStyles.teamRow}>
+          <div className={teamStyles.personCard}>
             <div>
               <img src={slavik} alt="" />
             </div>
@@ -30,7 +30,7 @@ export default function Team() {
               <p>CEO & CTO</p>
             </div>
           </div>
-          <div className="person-card">
+          <div className={teamStyles.personCard}>
             <div>
               <img src={prochazka} alt="" />
             </div>
@@ -39,7 +39,7 @@ export default function Team() {
               <p>CTO</p>
             </div>
           </div>
-          <div className="person-card">
+          <div className={teamStyles.personCard}>
             <div>
               <img src={kadlec} alt="" />
             </div>
@@ -48,7 +48,7 @@ export default function Team() {
               <p>Co-founder</p>
             </div>
           </div>
-          <div className="person-card">
+          <div className={teamStyles.personCard}>
             <div>
               <img src={stedina} alt="" />
             </div>
@@ -58,8 +58,8 @@ export default function Team() {
             </div>
           </div>
         </div>
-        <div className="team-row">
-          <div className="person-card">
+        <div className={teamStyles.teamRow}>
+        <div className={teamStyles.personCard}>
             <div>
               <img src={sonsky} alt="" />
             </div>
@@ -68,7 +68,7 @@ export default function Team() {
               <p>Advisor, Originator</p>
             </div>
           </div>
-          <div className="person-card">
+          <div className={teamStyles.personCard}>
             <div>
               <img src={bajer} alt="" />
             </div>
@@ -77,7 +77,7 @@ export default function Team() {
               <p>Advisor, LSP expert</p>
             </div>
           </div>
-          <div className="person-card">
+          <div className={teamStyles.personCard}>
             <div>
               <img src={plesek} alt="" />
             </div>
@@ -87,7 +87,7 @@ export default function Team() {
               of Czech Academy of Science</p>
             </div>
           </div>
-          <div className="person-card">
+          <div className={teamStyles.personCard}>
             <div>
               <img src={lukacevic} alt="" />
             </div>

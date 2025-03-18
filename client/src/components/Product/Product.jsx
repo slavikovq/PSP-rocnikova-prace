@@ -1,4 +1,4 @@
-import "../../scss/Product.scss";
+import productStyles from "../../scss/Product.module.scss";
 import wrench from "../../assets/icons/wrench.png"
 import note from "../../assets/icons/note.png"
 import gear from "../../assets/icons/gear.png"
@@ -8,14 +8,14 @@ export default function Product() {
   return (
     <>
     <div id="Product">
-    <div className="product">
-      <section className="services">
-        <div className="services-box">
+    <div className={productStyles.product}>
+      <section className={productStyles.services}>
+        <div className={productStyles.servicesBox}>
           <h6>— plasma peening —</h6>
           <h1>Services</h1>
           </div>
-          <div className="services-cards">
-            <div className="services-card">
+          <div className={productStyles.servicesCards}>
+            <div className={productStyles.servicesCard}>
               <div>
                 <img src={gear} alt="" />
               </div>
@@ -25,7 +25,7 @@ export default function Product() {
                 handling temporary projects, or requiring confidentiality.
               </p>
             </div>
-            <div className="services-card">
+            <div className={productStyles.servicesCard}>
               <div>
                 <img src={note} alt="" />
               </div>
@@ -37,7 +37,7 @@ export default function Product() {
                 benefits and ensure optimal results.
               </p>
             </div>
-            <div className="services-card">
+            <div className={productStyles.servicesCard}>
               <div>
                 <img src={tag} alt="" />
               </div>
@@ -49,8 +49,8 @@ export default function Product() {
             </div>
           </div>
       </section>
-      <section className="product-section">
-        <div className="product-box">
+      <section className={productStyles.productSection}>
+        <div className={productStyles.productBox}>
           <h6>— product</h6>
           <h1>Plasma Shock Peening</h1>
           <p>
@@ -70,30 +70,30 @@ export default function Product() {
             program.
           </p>
         </div>
-        <div className="product-box">
-          <div className="product-boxes">
-            <div className="usage">
-              <div className="usage-box">
+        <div className={productStyles.productBox}>
+        <div className={productStyles.productBoxes}>
+        <div className={productStyles.usage}>
+        <div className={productStyles.usageBox}>
                 <div>
                   <img src={wrench} alt="" />
                   <h5>TURBINES & PUMPS</h5>
                 </div>
               </div>
-              <div className="usage-box">
+              <div className={productStyles.usageBox}>
                 <div>
                   <img src={wrench} alt="" />
                   <h5>CASTING MOLDS</h5>
                 </div>
               </div>
             </div>
-            <div className="usage">
-              <div className="usage-box">
+            <div className={productStyles.usage}>
+            <div className={productStyles.usageBox}>
                 <div>
                   <img src={wrench} alt="" />
                   <h5>WELDS</h5>
                 </div>
               </div>
-              <div className="usage-box">
+              <div className={productStyles.usageBox}>
                 <div>
                   <img src={wrench} alt="" />
                   <h5>MEDICAL DEVICES</h5>

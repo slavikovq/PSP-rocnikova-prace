@@ -9,21 +9,21 @@
 }
 
 
-.signup-form{ 
+.signupForm{ 
     display: flex;
     justify-content: center; 
 }
 
-.signup-form p, a{
+.signupForm p, a{
     color: variables.$gray;
     text-decoration: none;
 }
 
-.signup-form a{
+.signupForm a{
    color: variables.$lighter-yellow; 
 }
 
-.signup-form input{
+.signupForm input{
     border-radius: 10px;
     padding: 15px;
     width: 300px;
@@ -31,7 +31,7 @@
     border: 1px solid black;
 }
 
-.signup-form button{
+.signupForm button{
     border-radius: 10px;
     padding: 15px;
     width: 300px;
