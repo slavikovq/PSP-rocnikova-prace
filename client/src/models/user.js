@@ -65,3 +65,28 @@ export const getUser = async () => {
     token: data.token,
   };
 };
+
+export const editUser = async (id, formData) => {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    return null;
+  }
+  const req = await fetch(`http://localhost:3000/user/${id}`, {
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    method: "PUT",
+    body: JSON.stringify(formData),
+  });
+
+  const data = await req.json();
+
+  return {
+    status: req.status,
+    message: data.message,
+    payload: data.payload,
+    token: data.token,
+  };
+};

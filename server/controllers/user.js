@@ -69,3 +69,27 @@ exports.getUser = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+exports.editUser = async (req, res) => {
+  try {
+    const data = {
+       firstName: req.body.firstName,
+       lastName: req.body.lastName,
+       email: req.body.email, 
+       password: req.body.password,
+       pfp: req.body.pfp,
+       role: req.body.role,
+       dataCreated: req.body.dataCreated
+    }
+
+    const result = await User.findByIdAndUpdate(req.params.id, data);
+
+    if(result){
+      return res.status(200).send({message: "User updated!", payload: result});
+    }
+
+    res.status(400).send({message: "Wrong input!"})
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+}

@@ -3,6 +3,7 @@ import { useAuth } from "../../context/AuthProvider";
 import { useEffect, useState } from "react";
 import signInStyles from "../../scss/SignIn.module.scss";
 import { loginUser } from "../../models/user";
+import { alert } from "../../function/sweetalert";
 
 export default function SignInForm() {
 
@@ -15,6 +16,7 @@ export default function SignInForm() {
       const res = await loginUser(formData);
       if (res.status === 200) {
         login(res.token);
+        alert("success", "You were logged in succesfully!");
         return navigate("/");
       }
   

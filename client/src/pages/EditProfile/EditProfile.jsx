@@ -2,9 +2,33 @@ import editStyles from "../../scss/EditProfile.module.scss";
 import AdminBar from "../../components/AdminBar/AdminBar";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider";
+import { useState } from "react";
+import { editUser } from "../../models/user";
+import { alert } from "../../function/sweetalert"
 
 export default function PanelEditProfile() {
-  const { user } = useAuth();
+  const { user, fetchUser } = useAuth();
+  const [formData, setFormData] = useState();
+
+  const sendData = async () => {
+    const res = await editUser(user._id, formData);
+    if(res.status === 200){
+      await fetchUser()
+      alert("success", "Your profile was updated!")
+    }
+  };
+
+  const handleInput = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }))
+  }
+
+  const handleButton = (e) => {
+    e.preventDefault()
+    sendData()
+  }
 
   return (
     <>
@@ -18,16 +42,20 @@ export default function PanelEditProfile() {
                   <span>First name</span>
                   <input
                     type="text"
-                    placeholder={user.firstName}
+                    defaultValue={user.firstName}
                     id={editStyles.firstName}
+                    name="firstName"
+                    onChange={handleInput}
                   />
                 </div>
                 <div>
                   <span>Last name</span>
                   <input
                     type="text"
-                    placeholder={user.lastName}
+                    defaultValue={user.lastName}
                     id={editStyles.lastName}
+                    name="lastName"
+                    onChange={handleInput}
                   />
                 </div>
               </div>
@@ -35,8 +63,10 @@ export default function PanelEditProfile() {
                 <span>Email</span>
                 <input
                   type="email"
-                  placeholder={user.email}
+                  defaultValue={user.email}
                   id={editStyles.email}
+                  name="email"
+                  onChange={handleInput}
                 />
               </div>
               <div>
@@ -48,7 +78,6 @@ export default function PanelEditProfile() {
                 />
               </div>
               <div>
-              
                 <input
                   type="password"
                   placeholder="New password"
@@ -56,14 +85,13 @@ export default function PanelEditProfile() {
                 />
               </div>
               <div>
-    
                 <input
                   type="password"
                   placeholder="Confirm password"
                   id={editStyles.password}
                 />
               </div>
-              <button type="submit">Save changes</button>
+              <button type="submit" onClick={handleButton}>Save changes</button>
             </form>
           </div>
         </div>
