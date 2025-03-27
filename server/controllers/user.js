@@ -29,7 +29,9 @@ exports.register = async (req, res) => {
   try {
     const { firstName, lastName, email, password } = req.body;
     if (!(firstName && lastName && email && password)) {
-      return res.status(400).json({ message: "You must fill in all required fields!" });
+      return res
+        .status(400)
+        .json({ message: "You must fill in all required fields!" });
     }
 
     const userExist = await User.findOne({ email });
@@ -73,24 +75,39 @@ exports.getUser = async (req, res) => {
 exports.editUser = async (req, res) => {
   try {
     const data = {
-       firstName: req.body.firstName,
-       lastName: req.body.lastName,
-       email: req.body.email, 
-       password: req.body.password,
-       pfp: req.body.pfp,
-       role: req.body.role,
-       dataCreated: req.body.dataCreated
-    }
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      password: req.body.password,
+      pfp: req.body.pfp,
+      role: req.body.role,
+      dataCreated: req.body.dataCreated,
+    };
 
     const result = await User.findByIdAndUpdate(req.params.id, data);
 
-    if(result){
-      return res.status(200).send({message: "User updated!", payload: result});
+    if (result) {
+      return res
+        .status(200)
+        .send({ message: "User updated!", payload: result });
     }
 
-    res.status(400).send({message: "Wrong input!"})
+    res.status(400).send({ message: "Wrong input!" });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
-}
+};
 
+exports.verifyPassword = async (req, res) => {
+  try {
+    const { password } = req.body;
+    const user = await User.findById(req.user.userId);
+    if (!user || !(await bcrypt.compare(password, user.password))) {
+      return res.status(401).json({ message: "Wrong password!" });
+    }
+
+    res.status(200).json({ message: "Correct password" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};

@@ -53,7 +53,7 @@ export const getUser = async () => {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
     },
-    method: "GET"
+    method: "GET",
   });
 
   const data = await req.json();
@@ -88,5 +88,29 @@ export const editUser = async (id, formData) => {
     message: data.message,
     payload: data.payload,
     token: data.token,
+  };
+};
+
+export const verifyUserPassword = async (password) => {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    return null;
+  }
+
+  const req = await fetch("http://localhost:3000/user/verify", {
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    method: "POST",
+    body: JSON.stringify({ password: password }),
+  });
+  const data = await req.json();
+
+  return {
+    status: req.status,
+    message: data.message,
+    payload: data.payload,
   };
 };
