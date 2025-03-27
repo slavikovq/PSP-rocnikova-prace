@@ -6,6 +6,7 @@
   width: 100%;
 }
 
+
 .edit {
   width: 82%;
   align-items: center;
@@ -32,7 +33,9 @@
 
 }
 
-.edit button{
+
+
+#save{
   background-color: variables.$darker-yellow;
   width: 180px;
   border-radius: 5px;
@@ -42,9 +45,12 @@
   margin-top: 5px;
 
 }
-.edit button:hover{
+
+#save:hover{
   transform: scale(1.1);
   transition: .1s ease;
+  cursor: pointer;
+
 }
 
 .form{
@@ -55,10 +61,31 @@
   justify-content: center;
 }
 
-.form span{
+.form span,p {
   color: white;
 }
 
 .form div{
   padding-block: 5px;
+}
+
+#passwordB{
+  background-color: white;
+  width: 150x;
+  border-radius: 8px;
+  padding: 8px;
+  transition: .1s ease;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  transition: .1s ease;
+}
+
+#passwordB:hover{
+  cursor: pointer;
+}
+
+
+#Bposition{
+  display: flex;
+  flex-direction: row-reverse;
 }

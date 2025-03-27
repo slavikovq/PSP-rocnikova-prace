@@ -68,31 +68,16 @@ export default function PanelEditProfile() {
                   name="email"
                   onChange={handleInput}
                 />
+              </div> 
+             <div>
+                <p>Password</p>
+                <button id={editStyles.passwordB}> Change Password</button>
+                
               </div>
-              <div>
-                <span>Password</span>
-                <input
-                  type="password"
-                  placeholder="Current password"
-                  id={editStyles.password}
-                />
+              <div id={editStyles.Bposition}>
+                <button id={editStyles.save} type="submit" onClick={handleButton}>Save</button>
               </div>
-              <div>
-                <input
-                  type="password"
-                  placeholder="New password"
-                  id={editStyles.password}
-                />
-              </div>
-              <div>
-                <input
-                  type="password"
-                  placeholder="Confirm password"
-                  id={editStyles.password}
-                />
-              </div>
-              <button type="submit" onClick={handleButton}>Save changes</button>
-            </form>
+              </form>
           </div>
         </div>
       </div>

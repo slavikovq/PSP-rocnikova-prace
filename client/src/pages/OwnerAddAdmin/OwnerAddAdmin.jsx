@@ -13,13 +13,11 @@ export default function OwnerAddAdmin() {
             <div id={ownerStyles.names}>
               <div>
                 <span>Assign administrator role</span>
-                <select
-                  type="email"
-                  placeholder="Enter users email..."
-                  id={ownerStyles.email}
-                >
-                  <option value={user.email}>{user.email}</option>
-                </select>
+                <input
+                  type="text"
+                  placeholder="Enter administrators email..."
+                  id={ownerStyles.password}
+                />
               </div>
               <div>
                 <span>Password</span>
@@ -30,7 +28,6 @@ export default function OwnerAddAdmin() {
                 />
               </div>
               <button type="submit">Add administrator</button>
-
             </div>
           </form>
         </div>
