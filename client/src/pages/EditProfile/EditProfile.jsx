@@ -54,6 +54,7 @@ export default function PanelEditProfile() {
       background: "#0E0C13",
       cancelButtonText: "Cancel",
       cancelButtonColor: "#cfab4e",
+    
       preConfirm: () => {
         const oldPasssword = document.getElementById("passwordC-input").value;
         const newPassword = document.getElementById("passwordN-input").value;
@@ -94,57 +95,69 @@ export default function PanelEditProfile() {
     }
   };
 
+
+
   return (
     <>
       <div className={editStyles.page}>
         <AdminBar />
         <div className={editStyles.edit}>
-          <div className={editStyles.form}>
-            <form>
-              <div id={editStyles.names}>
-                <div>
-                  <span>First name</span>
-                  <input
-                    type="text"
-                    defaultValue={user.firstName}
-                    id={editStyles.firstName}
-                    name="firstName"
-                    onChange={handleInput}
-                  />
-                </div>
-                <div>
-                  <span>Last name</span>
-                  <input
-                    type="text"
-                    defaultValue={user.lastName}
-                    id={editStyles.lastName}
-                    name="lastName"
-                    onChange={handleInput}
-                  />
-                </div>
-              </div>
+          <div className={editStyles.bg}>
+            <div className={editStyles.form}>
               <div>
-                <span>Email</span>
-                <input
-                  type="email"
-                  defaultValue={user.email}
-                  id={editStyles.email}
-                  name="email"
-                  onChange={handleInput}
-                />
+                <form>
+                  <div id={editStyles.names}>
+                    <div>
+                      <span>First name</span>
+                      <input
+                        type="text"
+                        defaultValue={user.firstName}
+                        id={editStyles.firstName}
+                        name="firstName"
+                        onChange={handleInput}
+                      />
+                    </div>
+                    <div>
+                      <span>Last name</span>
+                      <input
+                        type="text"
+                        defaultValue={user.lastName}
+                        id={editStyles.lastName}
+                        name="lastName"
+                        onChange={handleInput}
+                      />
+                    </div>
+                  </div>
+                  <div id={editStyles.emailD}>
+                    <span>Email</span>
+                    <input
+                      type="email"
+                      defaultValue={user.email}
+                      id={editStyles.email}
+                      name="email"
+                      onChange={handleInput}
+                    />
+                  </div>
+                </form>
+                <div>
+                  <p>Password</p>
+                  <button
+                    id={editStyles.passwordB}
+                    onClick={handleEditPassword}
+                  >
+                    Change Password
+                  </button>
+                </div>
+                <div id={editStyles.Bposition}>
+                  <button
+                    id={editStyles.save}
+                    type="submit"
+                    onClick={handleButton}
+                  >
+                    Save
+                  </button>
+                </div>
               </div>
-            </form>
-            <div>
-              <p>Password</p>
-              <button id={editStyles.passwordB} onClick={handleEditPassword}>
-                {" "}
-                Change Password
-              </button>
-            </div>
-            <div id={editStyles.Bposition}>
-              <button id={editStyles.save} type="submit" onClick={handleButton}>
-                Save
-              </button>
             </div>
           </div>
         </div>
