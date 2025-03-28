@@ -1,30 +1,58 @@
 import addPostStyles from "../../scss/AddPost.module.scss";
 import AdminBar from "../../components/AdminBar/AdminBar";
 import { Link } from "react-router-dom";
-
+import { useAuth } from "../../context/AuthProvider";
 
 export default function AddPost() {
+  const { user } = useAuth();
 
   return (
     <>
       <div className={addPostStyles.page}>
         <AdminBar />
-        <div className={addPostStyles.post}>
-          <div className={addPostStyles.form}>
-            <form>
+        <div className={addPostStyles.edit}>
+          <div className={addPostStyles.bg}>
+            <div className={addPostStyles.form}>
               <div>
-                <span>Title</span>
-                <input
-                  type="text"
-                  placeholder="Title"
-                  id={addPostStyles.title}
-                />
+                <form>
+                  <div>
+                    <input
+                      type="text"
+                      placeholder="Enter title..."
+                      id={addPostStyles.title}
+                    />
+                  </div>
+
+                  <div id={addPostStyles.details}>
+                    <div>
+                      <input
+                        type="text"
+                        defaultValue={user.firstName + " " +user.lastName}
+                        id={addPostStyles.detail}
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="date"
+                        id={addPostStyles.detail}
+                      />
+                    </div>
+                  </div>
+
+                  <div id={addPostStyles.textarea}>
+                    <textarea
+                      type="text"
+                      placeholder="Write your message..."
+                      id={addPostStyles.content}
+                      name="email"
+                    />
+                  </div>
+                </form>
+                <div id={addPostStyles.buttons}>
+                  <button id={addPostStyles.postB}>Add post</button>
+                </div>
               </div>
-              <div>
-                <textarea name="" id="" placeholder="Write your post..."></textarea>
-              </div>
-              <button type="submit">Add Post</button>
-            </form>
+            </div>
           </div>
         </div>
       </div>

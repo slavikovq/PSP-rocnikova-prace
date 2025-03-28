@@ -5,12 +5,15 @@ import SignUp from "./SignUp/SignUp";
 import AdminDashboard from "./AdminDashboard/AdminDashboard";
 import News from "./News/News";
 import ArticlePage from "./ArticlePage/ArticlePage";
-import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
+import ProtectedRoute from "../components/Routes/ProtectedRoute/ProtectedRoute";
+import AdminRoute from "../components/Routes/AdminRoute/AdminRoute";
+import OwnerRoute from "../components/Routes/OwnerRoute/OwnerRoute";
 import EditProfile from "./EditProfile/EditProfile";
-import OwnerAddAdmin from "./OwnerAddAdmin/OwnerAddAdmin";
 import AddPost from "./AddPost/AddPost";
-import EditPost from "./EditPost/EditPost";
+import PostList from "./PostList/PostList";
 import LikedPosts from "./LikedPosts/LikedPosts";
+import Administrators from "./Administrators/Administrators";
+import EditPost from "./EditPost/EditPost";
 
 export default function AppRoutes() {
   return (
@@ -21,13 +24,17 @@ export default function AppRoutes() {
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route element={<ProtectedRoute />}>
-            <Route path="/panel" element={<AdminDashboard />} />
-            <Route path="/panel/edit-profile" element={<EditProfile/>} />
-            <Route path="/panel/add-admin" element={<OwnerAddAdmin/>} />
-            <Route path="/panel/add-post" element={<AddPost/>} />
-            <Route path="/panel/edit-post" element={<EditPost/>} />
-            <Route path="/panel/liked-posts" element={<LikedPosts/>} />
-          </Route>
+            <Route path="/panel/edit-profile" element={<EditProfile />} />
+            <Route path="/panel/liked-posts" element={<LikedPosts />} />
+
+  
+              <Route path="/panel" element={<AdminDashboard />} />
+              <Route path="/panel/add-post" element={<AddPost />} />
+              <Route path="/panel/post-list" element={<PostList />} />
+              <Route path="/panel/edit-post" element={<EditPost />} />
+
+                <Route path="/panel/administrators" element={<Administrators />} />
+              </Route>
           <Route path="/news" element={<News />} />
           <Route path="/article" element={<ArticlePage />} />
         </Routes>

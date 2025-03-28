@@ -52,10 +52,10 @@ export default function AdminBar() {
 
           {user.role === "owner" ? (
             <>
-              <Link to="/panel/add-admin">
+              <Link to="/panel/administrators">
                 <li className={panelStyles.button}>
                   <img src={owner} alt="" />
-                  <span>Add administrators</span>
+                  <span>Administrators</span>
                 </li>
               </Link>
             </>
@@ -77,7 +77,7 @@ export default function AdminBar() {
                   <span>Add post</span>
                 </li>
               </Link>
-              <Link to="/panel/edit-post">
+              <Link to="/panel/post-list">
                 <li className={panelStyles.button}>
                   <img src={edit} alt="" />
                   <span>Edit post</span>

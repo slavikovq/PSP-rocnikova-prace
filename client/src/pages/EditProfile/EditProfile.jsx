@@ -54,7 +54,7 @@ export default function PanelEditProfile() {
       background: "#0E0C13",
       cancelButtonText: "Cancel",
       cancelButtonColor: "#cfab4e",
-    
+
       preConfirm: () => {
         const oldPasssword = document.getElementById("passwordC-input").value;
         const newPassword = document.getElementById("passwordN-input").value;
@@ -94,8 +94,6 @@ export default function PanelEditProfile() {
       }
     }
   };
-
-
 
   return (
     <>
@@ -139,15 +137,28 @@ export default function PanelEditProfile() {
                     />
                   </div>
                 </form>
-                <div>
-                  <p>Password</p>
-                  <button
-                    id={editStyles.passwordB}
-                    onClick={handleEditPassword}
-                  >
-                    Change Password
-                  </button>
+                <div></div>
+                <div id={editStyles.buttons}>
+                  <div>
+                    <p>Password</p>
+                    <button
+                      id={editStyles.passwordB}
+                      onClick={handleEditPassword}
+                    >
+                      Change Password
+                    </button>
+                  </div>
+                  <div>
+                    <p>Delete Account</p>
+                    <button
+                      id={editStyles.delete}
+                  
+                    >
+                      Delete account
+                    </button>
+                  </div>
                 </div>
+
                 <div id={editStyles.Bposition}>
                   <button
                     id={editStyles.save}
