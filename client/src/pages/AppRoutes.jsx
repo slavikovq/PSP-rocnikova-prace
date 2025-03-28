@@ -27,14 +27,17 @@ export default function AppRoutes() {
             <Route path="/panel/edit-profile" element={<EditProfile />} />
             <Route path="/panel/liked-posts" element={<LikedPosts />} />
 
-  
+            <Route element={<AdminRoute />}>
               <Route path="/panel" element={<AdminDashboard />} />
               <Route path="/panel/add-post" element={<AddPost />} />
               <Route path="/panel/post-list" element={<PostList />} />
               <Route path="/panel/edit-post" element={<EditPost />} />
+            </Route>
 
-                <Route path="/panel/administrators" element={<Administrators />} />
-              </Route>
+            <Route element={<OwnerRoute />}>
+              <Route path="/panel/administrators" element={<Administrators />}/>
+            </Route>
+          </Route>
           <Route path="/news" element={<News />} />
           <Route path="/article" element={<ArticlePage />} />
         </Routes>

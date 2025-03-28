@@ -87,18 +87,22 @@ export default function AdminBar() {
           ) : null}
         </ul>
         <div className={panelStyles.user}>
+            <div>
+              <img src={userPfp} alt="" id={panelStyles.user} />
+            </div>
+            <div>
+              <p id={panelStyles.name}>
+                {user.firstName} {user.lastName}
+              </p>
+              <p id={panelStyles.email}>{user.email}</p>
+            </div>
+
+
           <div>
-            <img src={userPfp} alt="" id={panelStyles.user} />
+            <Link to={"/"}>
+              <img src={leave} alt="" id={panelStyles.leave} onClick={logout} />
+            </Link>
           </div>
-          <div>
-            <p id={panelStyles.name}>
-              {user.firstName} {user.lastName}
-            </p>
-            <p id={panelStyles.email}>{user.email}</p>
-          </div>
-          <Link to={"/"}>
-            <img src={leave} alt="" id={panelStyles.leave} onClick={logout} />
-          </Link>
         </div>
       </nav>
     </>

@@ -6,7 +6,7 @@ export default function AdminRoute() {
 
   if (isLoading) return <p>Loading</p>;
 
-  return user.role === "admin" ? (
+  return user.role === "admin" || user.role === "owner" ? (
     <Outlet />
   ) : (
     <Navigate to={"/panel/edit-profile"} replace />

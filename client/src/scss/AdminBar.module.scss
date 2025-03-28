@@ -49,13 +49,16 @@ h1{
     
 }
 
+
+
 .user {
     display: flex;
     position: fixed;
     bottom: 0;
+    gap: 20px;
     padding: 20px;
-    gap: 10%;
     align-items: center; 
+    justify-content: center;
 }
 
 #user {

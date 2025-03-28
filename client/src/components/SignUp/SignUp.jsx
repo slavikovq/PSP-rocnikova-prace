@@ -3,6 +3,7 @@ import signUpStyles from "../../scss/SignUp.module.scss";
 import { useAuth } from "../../context/AuthProvider";
 import { useEffect, useState } from "react";
 import { registerUser } from "../../models/user";
+import { alert } from "../../function/sweetalert"
 
 export default function SignUpForm() {
   const [formData, setFormData] = useState();
@@ -15,6 +16,10 @@ export default function SignUpForm() {
     if (res.status === 201) {
       login(res.token);
       return navigate("/");
+    }
+
+    if(res.status === 500){
+      alert("error", "Wrong email input!")
     }
 
     setInfo(res.message);

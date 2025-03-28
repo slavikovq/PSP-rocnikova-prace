@@ -3,16 +3,25 @@ import AdminBar from "../../components/AdminBar/AdminBar";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider";
 import { useState } from "react";
-import { editUser, verifyUserPassword } from "../../models/user";
+import { deleteUser, editUser, verifyUserPassword } from "../../models/user";
 import { alert } from "../../function/sweetalert";
 import Swal from "sweetalert2";
 import bcrypt from "bcryptjs";
 
 export default function PanelEditProfile() {
-  const { user, fetchUser } = useAuth();
+  const { user, fetchUser, logout } = useAuth();
   const [formData, setFormData] = useState();
 
   const sendData = async () => {
+    if (formData.email) {
+      const regex =
+        /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+      if (!regex.test(formData.email)) {
+        alert("error", "Incorrect email format!");
+        return;
+      }
+    }
+
     const res = await editUser(user._id, formData);
     if (res.status === 200) {
       await fetchUser();
@@ -95,6 +104,49 @@ export default function PanelEditProfile() {
     }
   };
 
+  const handleDeleteUser = async () => {
+    const { value } = await Swal.fire({
+      title: "Delete your account",
+      html: `
+            <div>
+              <p style="margin-left: -260px; margin-bottom: -15px; margin-top: 20px">Enter your password</p>
+              <input type="password" id="password-input" class="swal2-input" style="width: 440px; margin-left: 2px">
+            </div>
+       `,
+      confirmButtonText: "Delete",
+      confirmButtonColor: "#cfab4e",
+      showCancelButton: true,
+      color: "white",
+      background: "#0E0C13",
+      cancelButtonText: "Cancel",
+      cancelButtonColor: "#cfab4e",
+
+      preConfirm: () => {
+        const password = document.getElementById("password-input").value;
+
+        if (!password) {
+          Swal.showValidationMessage("Password input cannot be empty!");
+          return false;
+        }
+
+        return { password };
+      },
+    });
+
+    if (value) {
+      const res = await verifyUserPassword(value.password);
+
+      if (res.status !== 200) {
+        return alert("error", "Password is incorrect!");
+      }
+
+      alert("info", "Your account was deleted!");
+
+      await deleteUser(user._id);
+      await logout();
+    }
+  };
+
   return (
     <>
       <div className={editStyles.page}>
@@ -151,8 +203,9 @@ export default function PanelEditProfile() {
                   <div>
                     <p>Delete Account</p>
                     <button
+                      type="submit"
+                      onClick={handleDeleteUser}
                       id={editStyles.delete}
-                  
                     >
                       Delete account
                     </button>
