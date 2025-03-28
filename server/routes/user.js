@@ -9,5 +9,6 @@ router.get("/", auth, userController.getUser);
 router.put("/:id", auth, userController.editUser);
 router.post("/verify", auth, userController.verifyPassword);
 router.delete("/:id", auth, userController.deleteUser);
+router.get("/:email", auth, userController.getUserByEmail);
 
 module.exports = router;

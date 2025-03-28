@@ -72,6 +72,22 @@ exports.getUser = async (req, res) => {
   }
 };
 
+exports.getUserByEmail = async (req, res) => {
+  try {
+
+    const email = req.params.email;
+
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(404).json({ message: "User not found!" });
+    }
+
+    res.status(200).send({ message: "User found!", payload: user });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
 exports.editUser = async (req, res) => {
   try {
     const data = {
