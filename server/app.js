@@ -16,6 +16,7 @@ mongoose
 
 
 const userRouter = require("./routes/user");
+const postRouter = require("./routes/post");
 
 
 
@@ -34,6 +35,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use("/user", userRouter);
+app.use("/post", postRouter);
 
 
 // catch 404 and forward to error handler

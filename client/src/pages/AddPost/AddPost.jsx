@@ -2,6 +2,9 @@ import addPostStyles from "../../scss/AddPost.module.scss";
 import AdminBar from "../../components/AdminBar/AdminBar";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider";
+import ReactQuill from "react-quill"
+import "react-quill/dist/quill.snow.css"
+
 
 export default function AddPost() {
   const { user } = useAuth();
@@ -38,15 +41,7 @@ export default function AddPost() {
                       />
                     </div>
                   </div>
-
-                  <div id={addPostStyles.textarea}>
-                    <textarea
-                      type="text"
-                      placeholder="Write your message..."
-                      id={addPostStyles.content}
-                      name="email"
-                    />
-                  </div>
+                  <ReactQuill className={addPostStyles.customQuill}/>
                 </form>
                 <div id={addPostStyles.buttons}>
                   <button id={addPostStyles.postB}>Add post</button>
