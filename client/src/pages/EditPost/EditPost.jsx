@@ -1,10 +1,72 @@
 import editPostStyles from "../../scss/EditPost.module.scss";
 import AdminBar from "../../components/AdminBar/AdminBar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+import { useEffect, useState } from "react";
+import { getPostById, updatePost } from "../../models/post";
+import { alert } from "../../function/sweetalert";
 
 export default function EditPost() {
   const { user } = useAuth();
+  const { id } = useParams();
+  const [post, setPost] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+  const [formData, setFormData] = useState();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const load = async () => {
+      const data = await getPostById(id);
+      if (data.status === 500 || data.status === 404) {
+        return setIsLoading(null);
+      }
+
+      if (data.status === 200) {
+        setPost(data.payload);
+        setIsLoading(false);
+      }
+    };
+    load();
+  }, []);
+
+  const sendData = async () => {
+    const res = await updatePost(id, formData);
+    if (res.status === 200) {
+      alert("success", "Your post has been successfully updated!");
+    } else {
+      alert("error", "Inputs cannot be empty!");
+    }
+  };
+
+  const handleInput = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+      creator: user._id,
+    }));
+  };
+
+  const handleButton = (e) => {
+    e.preventDefault();
+    sendData();
+  };
+
+  const handleContent = (value) => {
+    setFormData((prev) => ({
+      ...prev,
+      content: value,
+    }));
+  };
+
+  if(isLoading === null){
+    return <p>Post not found!</p>
+  }
+  
+  if(isLoading){
+    return <p>Post is loading!</p>
+  }
 
   return (
     <>
@@ -19,37 +81,16 @@ export default function EditPost() {
                     <input
                       type="text"
                       placeholder="Enter title..."
+                      name="title"
                       id={editPostStyles.title}
+                      onChange={handleInput}
+                      defaultValue={post.title}
                     />
                   </div>
-
-                  <div id={editPostStyles.details}>
-                    <div>
-                      <input
-                        type="text"
-                        defaultValue={user.firstName + " " +user.lastName}
-                        id={editPostStyles.detail}
-                      />
-                    </div>
-                    <div>
-                      <input
-                        type="date"
-                        id={editPostStyles.detail}
-                      />
-                    </div>
-                  </div>
-
-                  <div id={editPostStyles.textarea}>
-                    <textarea
-                      type="text"
-                      placeholder="Write your message..."
-                      id={editPostStyles.content}
-                      name="email"
-                    />
-                  </div>
+                  <ReactQuill className={editPostStyles.customQuill} onChange={handleContent} defaultValue={post.content} />
                 </form>
                 <div id={editPostStyles.buttons}>
-                  <button id={editPostStyles.postB}>Edit post</button>
+                  <button id={editPostStyles.postB} onClick={handleButton}>Edit post</button>
                 </div>
               </div>
             </div>

@@ -31,7 +31,7 @@ export default function AppRoutes() {
               <Route path="/panel" element={<AdminDashboard />} />
               <Route path="/panel/add-post" element={<AddPost />} />
               <Route path="/panel/post-list" element={<PostList />} />
-              <Route path="/panel/edit-post" element={<EditPost />} />
+              <Route path="/panel/edit-post/:id" element={<EditPost />} />
             </Route>
 
             <Route element={<OwnerRoute />}>

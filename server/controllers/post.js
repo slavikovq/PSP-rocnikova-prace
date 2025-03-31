@@ -32,11 +32,11 @@ exports.getPostById = async (req, res) => {
 
 exports.createPost = async (req, res) => {
   try {
-    const data = {
+    const data = new Post({
       title: req.body.title,
       creator: req.body.creator,
       content: req.body.content,
-    };
+    });
 
     const result = await data.save();
 
