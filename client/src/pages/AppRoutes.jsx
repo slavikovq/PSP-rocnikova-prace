@@ -39,7 +39,7 @@ export default function AppRoutes() {
             </Route>
           </Route>
           <Route path="/news" element={<News />} />
-          <Route path="/article" element={<ArticlePage />} />
+          <Route path="/article/:id" element={<ArticlePage />} />
         </Routes>
       </BrowserRouter>
     </>

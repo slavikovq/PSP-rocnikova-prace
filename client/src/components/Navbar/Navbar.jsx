@@ -7,7 +7,6 @@ import { useAuth } from "../../context/AuthProvider";
 
 export default function Navbar() {
   const { user } = useAuth();
-  console.log(user);
   return (
     <>
       <nav className={navbarStyles.navbar}>

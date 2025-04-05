@@ -15,6 +15,21 @@ exports.getAllPosts = async (req, res) => {
   }
 };
 
+exports.getAllUserPosts = async (req, res) => {
+  try {
+    const data = await Post.find({creator: req.user.userId});
+
+    if (data && data.length !== 0) {
+      return res.status(200).send({
+        message: "Posts found!",
+        payload: data,
+      });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 exports.getPostById = async (req, res) => {
   try {
     const data = await Post.findById(req.params.id);

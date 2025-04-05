@@ -23,9 +23,14 @@ export default function EditPost() {
         return setIsLoading(null);
       }
 
-      if (data.status === 200) {
+      if (data.status === 200 && user.role === "owner") {
         setPost(data.payload);
         setIsLoading(false);
+      } else if (data.status === 200 && user._id === data.payload.creator) {
+        setPost(data.payload);
+        setIsLoading(false);
+      } else {
+        return navigate("/panel/post-list")
       }
     };
     load();
@@ -60,12 +65,12 @@ export default function EditPost() {
     }));
   };
 
-  if(isLoading === null){
-    return <p>Post not found!</p>
+  if (isLoading === null) {
+    return <p>Post not found!</p>;
   }
-  
-  if(isLoading){
-    return <p>Post is loading!</p>
+
+  if (isLoading) {
+    return <p>Post is loading!</p>;
   }
 
   return (
@@ -87,10 +92,16 @@ export default function EditPost() {
                       defaultValue={post.title}
                     />
                   </div>
-                  <ReactQuill className={editPostStyles.customQuill} onChange={handleContent} defaultValue={post.content} />
+                  <ReactQuill
+                    className={editPostStyles.customQuill}
+                    onChange={handleContent}
+                    defaultValue={post.content}
+                  />
                 </form>
                 <div id={editPostStyles.buttons}>
-                  <button id={editPostStyles.postB} onClick={handleButton}>Edit post</button>
+                  <button id={editPostStyles.postB} onClick={handleButton}>
+                    Edit post
+                  </button>
                 </div>
               </div>
             </div>

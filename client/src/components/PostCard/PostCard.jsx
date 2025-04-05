@@ -1,38 +1,91 @@
 import AdminBar from "../../components/AdminBar/AdminBar";
 import postCardStyles from "../../scss/PostCard.module.scss";
-import { useAuth } from "../../context/AuthProvider";
-import edit from "../../assets/icons/edit.svg"
-import trash from "../../assets/icons/trash.svg"
+import edit from "../../assets/icons/edit.svg";
+import trash from "../../assets/icons/trash.svg";
 import { Link } from "react-router-dom";
+import DOMPurify from "dompurify";
+import { getUserById } from "../../models/user";
+import { useState, useEffect } from "react";
+import Swal from "sweetalert2"
+import {alert} from "../../function/sweetalert"
+import {deletePost} from "../../models/post"
 
-export default function PostCard() {
-  const { user } = useAuth();
+export default function PostCard({ title, creator, dateCreated, content, id }) {
+  const [creatorName, setCreatorName] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const load = async () => {
+      const res = await getUserById(creator);
+      if (res.status === 404) return setCreatorName(null);
+      if (res.status === 200) {
+        const name = `${res.payload.firstName} ${res.payload.lastName}`;
+        setIsLoading(false);
+        setCreatorName(name);
+      }
+    };
+    load();
+  }, []);
+
+  const convertDate = () => {
+    const date = new Date(dateCreated);
+    return date.toLocaleDateString("cs-CZ");
+  };
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  const handleDelete = async (e, id) => {
+    e.preventDefault()
+    const Alert = Swal.mixin({
+      buttonsStyling: true,
+    }) 
+    Alert.fire({
+      title: "Are you sure you want to delete this post?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Confirm",
+      color: "black",
+      confirmButtonColor: "#cfab4e",
+      cancelButtonText: "Cancel",
+      cancelButtonColor: "#cfab4e",
+      reverseButtons: true,
+    }).then(async (result) => {
+      if(result.isConfirmed){
+        const data = await deletePost(id);
+        if(data.status === 200){
+          alert("success", "Post was deleted!");
+          window.location.reload();
+          return;
+        }
+      }
+    })
+  }
+
   return (
     <>
-      
-            <div className={postCardStyles.card}>
-              <div>
-                <h1>Nadpis</h1>
-                <p id={postCardStyles.content}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-                  perferendis iste veritatis dolor esse voluptas adipisci rem!
-                  Rem consequuntur velit architecto totam voluptatibus quisquam
-                  enim reiciendis delectus facilis? Sunt, nemo maiores. Illum
-                  harum in aliquam voluptates quaerat ea, optio architecto atque
-                  pariatur laboriosam officiis aperiam? Soluta suscipit ipsam
-                  molestias laborum?
-                </p>
-              </div>
-              <div id={postCardStyles.details}>
-                <p id={postCardStyles.detail}>{user.firstName + " " + user.lastName}</p>
-                <p id={postCardStyles.detail}>28.03.2025</p>
-              </div>
-              <div id={postCardStyles.icons}>
-                <Link to={"/panel/edit-post"}><img src={edit} alt="" className={postCardStyles.icon}/></Link>
-                <Link to={"/"}><img src={trash} alt="" className={postCardStyles.icon}/></Link>
-              </div>
-            </div>
-
+      <div className={postCardStyles.card}>
+        <div>
+          <h1>{title}</h1>
+          <div
+            id={postCardStyles.content}
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content) }}
+          />
+        </div>
+        <div id={postCardStyles.details}>
+          <p id={postCardStyles.detail}>{creatorName}</p>
+          <p id={postCardStyles.detail}>{convertDate()}</p>
+        </div>
+        <div id={postCardStyles.icons}>
+          <Link to={`/panel/edit-post/${id}`}>
+            <img src={edit} alt="" className={postCardStyles.icon} />
+          </Link>
+          <Link>
+            <img src={trash} alt="" onClick={(e) => handleDelete(e, id)} className={postCardStyles.icon} />
+          </Link>
+        </div>
+      </div>
     </>
   );
 }
