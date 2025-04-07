@@ -4,11 +4,11 @@ import like from "../../assets/icons/thumbs-up.svg";
 import dislike from "../../assets/icons/thumbs-down.svg";
 import calendar from "../../assets/icons/calendar.svg";
 import { Link, useParams } from "react-router-dom";
-import { getPostById } from "../../models/post";
 import { useState, useEffect } from "react";
 import { getUserById } from "../../models/user";
 import DOMPurify from "dompurify";
 import { useAuth } from "../../context/AuthProvider";
+import { likePost, dislikePost, getPostById } from "../../models/post";
 
 export default function Article() {
   const { id } = useParams();
@@ -16,6 +16,8 @@ export default function Article() {
   const [isLoading, setIsLoading] = useState(true);
   const [creatorName, setCreatorName] = useState();
   const { user } = useAuth();
+  const [likes, setLikes] = useState(0);
+  const [dislikes, setDislikes] = useState(0);
 
   useEffect(() => {
     const load = async () => {
@@ -24,6 +26,12 @@ export default function Article() {
       if (res.status === 200) {
         setPost(res.payload);
         setIsLoading(false);
+      }
+
+      const postRes = await getPostById(id);
+      if (postRes.status === 200) {
+        setLikes(postRes.payload.isLiked.length);
+        setDislikes(postRes.payload.isDisliked.length);
       }
     };
     load();
@@ -56,6 +64,21 @@ export default function Article() {
   const dateDay = () => {
     const date = new Date(post.dateCreated);
     return date.getDate();
+  };
+
+  const handleRating = async (ratingType) => {
+    if (!user)
+      return alert("info", "You have to be logged in to rate this post!");
+    const res =
+      ratingType === "like"
+        ? await likePost(id, user._id)
+        : await dislikePost(id, user._id);
+
+    if (res.status === 200) {
+      const postRes = await getPostById(id);
+      setLikes(postRes.payload.isLiked.length);
+      setDislikes(postRes.payload.isDisliked.length);
+    }
   };
 
   if (isLoading === null) {
@@ -101,15 +124,25 @@ export default function Article() {
           <div className={articleStyles.postfooter}>
             <div className={articleStyles.rating}>
               <div>
-                <p>0</p>
-                <img src={like} alt="" id={articleStyles.rate} />
+                <p>{likes}</p>
+                <img
+                  src={like}
+                  alt=""
+                  id={articleStyles.rate}
+                  onClick={() => handleRating("like")}
+                />
               </div>
               <div>
-                <p>5</p>
-                <img src={dislike} alt="" id={articleStyles.rate} />
+                <p>{dislikes}</p>
+                <img
+                  src={dislike}
+                  alt=""
+                  id={articleStyles.rate}
+                  onClick={() => handleRating("dislike")}
+                />
               </div>
             </div>
-            {user.role === "owner" || user.role === "admin" ? (
+            {user?.role === "owner" || user?.role === "admin" ? (
               <>
                 <Link to={"/panel/post-list"}>
                   <button id={articleStyles.read}>EDIT</button>

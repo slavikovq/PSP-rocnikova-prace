@@ -7,10 +7,16 @@ import { Link } from "react-router-dom";
 import DOMPurify from "dompurify";
 import { getUserById } from "../../models/user";
 import { useState, useEffect } from "react";
+import { useAuth } from "../../context/AuthProvider";
+import { alert } from "../../function/sweetalert";
+import { likePost, dislikePost, getPostById } from "../../models/post";
 
 export default function Post({ title, creator, dateCreated, content, id }) {
   const [creatorName, setCreatorName] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const { user } = useAuth();
+  const [likes, setLikes] = useState(0);
+  const [dislikes, setDislikes] = useState(0);
 
   useEffect(() => {
     const load = async () => {
@@ -20,6 +26,12 @@ export default function Post({ title, creator, dateCreated, content, id }) {
         const name = `${res.payload.firstName} ${res.payload.lastName}`;
         setIsLoading(false);
         setCreatorName(name);
+      }
+
+      const postRes = await getPostById(id);
+      if (postRes.status === 200) {
+        setLikes(postRes.payload.isLiked.length);
+        setDislikes(postRes.payload.isDisliked.length);
       }
     };
     load();
@@ -32,14 +44,27 @@ export default function Post({ title, creator, dateCreated, content, id }) {
 
   const dateMonth = () => {
     const date = new Date(dateCreated);
-    return date.toLocaleString('en-US', { month: 'short' }).toUpperCase();
-  }
+    return date.toLocaleString("en-US", { month: "short" }).toUpperCase();
+  };
 
   const dateDay = () => {
     const date = new Date(dateCreated);
     return date.getDate();
-  }
+  };
 
+  const handleRating = async (ratingType) => {
+    if (!user) return alert("info", "You have to be logged in to rate this post!");
+    const res =
+      ratingType === "like"
+        ? await likePost(id, user._id)
+        : await dislikePost(id, user._id);
+
+    if (res.status === 200) {
+      const postRes = await getPostById(id);
+      setLikes(postRes.payload.isLiked.length);
+      setDislikes(postRes.payload.isDisliked.length);
+    }
+  };
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -78,12 +103,22 @@ export default function Post({ title, creator, dateCreated, content, id }) {
         <div className={postStyles.postFooter}>
           <div className={postStyles.rating}>
             <div>
-              <p>0</p>
-              <img src={like} alt="" id={postStyles.rate} />
+              <p>{likes}</p>
+              <img
+                src={like}
+                alt=""
+                id={postStyles.rate}
+                onClick={() => handleRating("like")}
+              />
             </div>
             <div>
-              <p>5</p>
-              <img src={dislike} alt="" id={postStyles.rate} />
+              <p>{dislikes}</p>
+              <img
+                src={dislike}
+                alt=""
+                id={postStyles.rate}
+                onClick={() => handleRating("dislike")}
+              />
             </div>
           </div>
           <Link to={`/article/${id}`}>

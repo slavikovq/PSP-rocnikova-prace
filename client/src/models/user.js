@@ -67,14 +67,9 @@ export const getUser = async () => {
 };
 
 export const getUserById = async (id) => {
-  const token = localStorage.getItem("token");
-  if (!token) {
-    return null;
-  }
   const req = await fetch(`http://localhost:3000/user/find/${id}`, {
     headers: {
       Accept: "application/json",
-      Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
     },
     method: "GET",
