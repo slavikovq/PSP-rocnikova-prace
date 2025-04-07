@@ -178,3 +178,25 @@ export const dislikePost = async (id, userId) => {
   };
 } 
 
+export const getAllLikedPosts = async (id) => {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    return null;
+  }
+  const req = await fetch(`http://localhost:3000/post/${id}/liked-posts`, {
+    headers: {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+
+    method: "GET",
+  });
+
+  const data = await req.json();
+  return {
+    status: req.status,
+    message: data.message,
+    payload: data.payload,
+  };
+};

@@ -168,3 +168,19 @@ exports.dislikePost = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+exports.getAllLikedPosts = async (req,res) => {
+  try {
+    const data = await Post.find({ isLiked: req.params.id });
+
+    if (data) {
+      return res.status(200).send({
+        message: "Posts found!",
+        payload: data,
+      });
+    }
+
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
