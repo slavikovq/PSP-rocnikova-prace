@@ -3,9 +3,11 @@
 
 .post {
   width: 700px;
+  height: 400px;
   background-color: white;
-  padding: 20px;
+  padding: 30px;
   border-radius: 10px;
+  margin-inline: 30px;
 }
 
 .postHeader {
@@ -42,10 +44,14 @@
 }
 
 .article {
-  padding: 18px;
-  max-height: 250px;
+  padding: 10px;
+  max-height: 220px;
+  height: 100%;
   position: relative;
   overflow: hidden;
+  white-space: normal;
+  word-wrap: break-word;
+
   mask-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 1) 60%,
@@ -111,8 +117,8 @@
 
 .dateBadge {
   position: absolute;
-  top: 60px;
-  left: -50px;
+  top: 20px;
+  left: -60px;
   background-color: variables.$lighter-yellow;
   padding: 10px;
   font-weight: bold;

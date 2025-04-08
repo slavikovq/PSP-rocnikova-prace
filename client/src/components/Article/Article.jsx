@@ -142,18 +142,24 @@ export default function Article() {
                 />
               </div>
             </div>
-            {user?.role === "owner" || user?.role === "admin" ? (
-              <>
-                <Link to={"/panel/post-list"}>
-                  <button id={articleStyles.read}>EDIT</button>
+            <div className={articleStyles.buttons}>
+              <div>
+                {user?.role === "owner" || user?.role === "admin" ? (
+                  <>
+                    <Link to={`/panel/edit-post/${id}`}>
+                      <button id={articleStyles.read}>EDIT</button>
+                    </Link>
+                  </>
+                ) : (
+                  ""
+                )}
+              </div>
+              <div>
+                <Link to={"/news"}>
+                  <button id={articleStyles.read}>BACK</button>
                 </Link>
-              </>
-            ) : (
-              ""
-            )}
-            <Link to={"/news"}>
-              <button id={articleStyles.read}>BACK</button>
-            </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>

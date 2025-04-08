@@ -3,6 +3,7 @@
 
 .post {
   width: 600px;
+  height: 300px;
   background-color: variables.$bg-dark;
   padding: 30px;
   border-radius: 10px;
@@ -44,7 +45,8 @@
 
 .article {
   padding: 18px;
-  max-height: 250px;
+  max-height: 120px;
+  height: 100%;
   position: relative;
   overflow: hidden;
   color: white;
