@@ -3,4 +3,67 @@
 
 .page {
   display: flex;
+  width: 100%;
+}
+
+.edit {
+  width: 82%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.bg {
+  background-color: #14111b;
+  width: 93%;
+  height: 93%;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.statistics{
+  display: flex;
+  justify-content: space-evenly;
+  gap: 200px;
+}
+
+.statistic {
+  color: white;
+  text-align: center;
+  border: 1px solid #222;
+  height: 300px;
+  width: 350px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: .2s ease;
+  user-select: none;
+
+  &:hover{
+    transform: scale(1.1);
+    transition: .2s ease;
+    border: 1px solid variables.$darker-yellow;
+  }
+}
+
+.statistic h3{
+  font-size: 1.4rem;
+  padding-bottom: 20px;
+}
+
+.statistic p{
+  font-size: 5rem;
+}
+
+
+
+.greeting{
+  color: white;
+  text-align: center;
+  padding-bottom: 100px;
 }

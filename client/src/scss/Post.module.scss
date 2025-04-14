@@ -44,7 +44,7 @@
   color: variables.$gray;
 }
 
-.article {
+.article{
   padding: 10px;
   max-height: 220px;
   height: 100%;
@@ -52,14 +52,16 @@
   overflow: hidden;
   white-space: normal;
   word-wrap: break-word;
-  
-
   mask-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 1) 60%,
     rgba(0, 0, 0, 0)
   );
   color: black;
+}
+
+.article li{
+  margin-left: 30px;
 }
 
 .postFooter {
