@@ -110,15 +110,13 @@
   }
 }
 
-
-
 #postB {
   background-color: variables.$darker-yellow;
   width: 180px;
   border-radius: 10px;
   padding: 12px;
   font-size: 1rem;
-  margin-top: 10px;
+  margin-top: 55px;
   transition: all 0.2s ease-in-out;
   font-weight: bold;
   border: none;
@@ -132,9 +130,71 @@
 
 
 .customQuill {
-  color: white;
-  border-radius: 10px;
-  background-color: variables.$bg-dark;
   margin-top: 10px;
-  height: 290px;
+  height: 300px;
+
+  :global {
+    .ql-container {
+      border: 1px solid #222;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      background-color: variables.$bg-dark;
+      color: white;
+    }
+
+    .ql-toolbar {
+      border: 1px solid #222;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      background-color: variables.$bg-dark;
+      color: white;
+
+      button {
+        &:hover .ql-stroke, &:hover .ql-fill {
+          stroke: variables.$darker-yellow;
+        }
+
+        &.ql-active .ql-stroke, &.ql-active .ql-fill {
+          stroke: variables.$darker-yellow;
+        }
+      }
+
+      .ql-picker-label {
+        &:hover, &.ql-active {
+          color: variables.$darker-yellow;
+
+          .ql-stroke, .ql-fill {
+            stroke: variables.$darker-yellow;
+          }
+        }
+      }
+
+      .ql-picker-item.ql-selected {
+        color: variables.$darker-yellow;
+      }
+    }
+
+    .ql-bold {
+      color: variables.$darker-yellow;
+    }
+
+    .ql-picker-options {
+      background-color: variables.$bg-dark;
+      border-radius: 5px;
+
+      .ql-picker-item {
+        color: white;
+        padding: 5px 10px;
+
+        &:hover {
+          color: variables.$darker-yellow;
+        }
+      }
+    }
+
+    .ql-editor {
+      color: white;
+    }
+  }
 }
+

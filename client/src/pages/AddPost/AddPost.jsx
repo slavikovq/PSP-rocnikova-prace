@@ -1,9 +1,9 @@
-import addPostStyles from "../../scss/AddPost.module.scss";
 import AdminBar from "../../components/AdminBar/AdminBar";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import addPostStyles from "../../scss/AddPost.module.scss";
 import { createPost } from "../../models/post";
 import { useState } from "react";
 import { alert } from "../../function/sweetalert";
