@@ -96,3 +96,90 @@
     display: grid;
     justify-content: right;
 }
+
+@media screen and (max-width: 1200px) {
+    .heroBox h1{
+        font-size: 2.8rem;
+    }
+
+    .heroBox p{
+        font-size:1.1rem;
+    }
+
+    .buttons button{
+        font-size: 1.1rem;
+    }
+    
+  }
+
+  @media screen and (max-width: 980px) {
+    .heroBox h1{
+        font-size: 2.4rem;
+    }
+
+    .heroBox p{
+        font-size:1.1rem;
+    }
+
+    .buttons button{
+        font-size: 1.1rem;
+    }
+    
+  } 
+  
+  @media screen and (max-width: 920px) {
+    .hero{
+        height: 60vh;
+    }
+    
+  }
+
+  @media screen and (max-width: 920px) {
+    .hero {
+      flex-direction: column-reverse;
+      height: auto;
+      padding: 6% 6%;
+      gap: 40px;
+    }
+  
+    .heroBox {
+      width: 100%;
+      text-align: center;
+    }
+  
+    #hb2 {
+      justify-content: center;
+    }
+  
+    .heroImg {
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  
+    .buttons {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .heroImg {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+  }
+  
+  @media screen and (max-width: 768px) {
+  .heroImg {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+      }
+  }
+  
+  @media screen and (max-width: 1088px) {
+    .heroBox h1{
+        font-size: 2.3rem;
+    }
+  }
+  

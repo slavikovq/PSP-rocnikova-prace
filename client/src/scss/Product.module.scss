@@ -79,6 +79,7 @@
     width: 45px;
 }
 
+
 // SERVICES
 
 .services{
@@ -87,6 +88,7 @@
     z-index: 10;
     margin-top: -28%;
 }
+
 .services h1{
     color: rgb(0, 0, 0);
     font-size: 3rem;
@@ -144,3 +146,141 @@
     width: 100px;
     height: 100px;
 }
+
+@media screen and (max-width: 1716px){
+  .services{
+    margin-top: -30%;
+  }
+}
+
+@media screen and (max-width: 1600px){
+.product{
+  height: 90vh;
+}
+
+}
+
+@media screen and (max-width: 1500px){
+.product{
+  height: 100vh;
+}
+
+}
+
+@media screen and (max-width: 1268px){
+
+  .services{
+    margin-top: -40%;
+  }
+
+}
+@media screen and (max-width: 1292px){
+
+  .product{
+    height: 110vh;
+  }
+
+}
+
+@media screen and (max-width: 1030px) {
+    .product {
+      padding: 6% 4%;
+    }
+  
+    .productSection {
+      flex-direction: column;
+      gap: 40px;
+    }
+  
+    .productBox {
+        width: 100%;
+        text-align: center;
+      }
+      
+  
+    .productBox h1,
+    .productBox p {
+      text-align: center;
+    }
+  
+    .productBoxes {
+      padding-left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+  
+    .usage {
+      align-items: center;
+    }
+  
+    .usageBox {
+      width: 150px;
+      height: 150px;
+      padding: 20px;
+    }
+
+
+    .usageBox h5 {
+      font-size: 1rem;
+    }
+  
+    .product {
+      height: auto;
+    }
+  }
+  
+
+
+  @media screen and (max-width: 1030px) {
+    .services {
+      margin-top: 0;
+      padding: 10% 6%;
+    }
+
+    .services h1{
+        color: white;
+    }
+  
+    .servicesBox {
+      padding-bottom: 20px;
+
+    }
+  
+    .servicesCards {
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+    }
+  
+    .servicesCard {
+      max-width: 90%;
+      height: auto;
+      padding: 30px 20px;
+      border-radius: 10px;
+      border: white;
+    
+    }
+
+    .servicesCard div{
+        background-color: variables.$bg-dark;
+        display: flex;
+        justify-content: center;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+    }
+  
+    .servicesCard div {
+      margin: 0 auto 20px auto;
+      
+      
+    }
+  
+    .servicesCard h2,
+    .servicesCard p {
+      text-align: center;
+    }
+  }
+  

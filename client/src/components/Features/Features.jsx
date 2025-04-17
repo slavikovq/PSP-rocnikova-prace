@@ -19,7 +19,7 @@ export default function Features() {
                 <p>spot size</p>
             </div>
             <div className={featuresStyles.featuresIcon}>
-            <img src={plug} alt="" id={featuresStyles.imgHeight} />
+            <img src={plug} alt="" />
                 <h2>10 J</h2>
                 <p>energy aprox</p>
             </div>

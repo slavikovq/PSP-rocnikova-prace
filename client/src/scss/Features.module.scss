@@ -1,57 +1,80 @@
 @use "./variables";
 @use "./fonts";
 
-.features{
+.features {
     padding: 4% 6%;
 }
 
-.featuresBox{
+.featuresBox {
     text-align: center;
     padding-bottom: 50px;
-
 }
 
-.featuresBox h6{
+.featuresBox h6 {
     color: variables.$darker-yellow;
     text-transform: uppercase;
     font-size: 0.8rem;
 }
 
-.featuresBox h1{
+.featuresBox h1 {
     color: white;
     font-size: 3rem;
     font-weight: 600;
 }
 
-.featuresIcons{
+.featuresIcons {
     display: flex;
-    text-align: center;
-    justify-content: center;
-    gap: 25%;
+    justify-content: space-between;
+    gap: 2%; 
     background-color: white;
-    padding: 3%;  
-    border-radius: 5px; 
+    padding: 3%;
+    border-radius: 5px;
+    flex-wrap: wrap; 
 }
 
-.featuresIcon p{
-    font-size:1.2rem;
+.featuresIcon {
+    text-align: center;
+    width: 30%; 
+    margin-bottom: 20px; 
+    line-height: 3rem;
+}
+
+.featuresIcon p {
+    font-size: 1.2rem;
     font-weight: 400;
 }
 
-.featuresIcon h2{
+.featuresIcon h2 {
     text-transform: uppercase;
     font-size: 2rem;
 }
 
-.featuresIcon{
-    line-height: 3rem;
-    width: 15%;
+.featuresIcon img {
+    width: 45px;
+    height: 60px;
 }
 
-#imgWidth{
-    width: 80px;
+#imgWidth {
+    width: 60px;
 }
 
-#imgHeight{
-    height: 80px;
+@media screen and (max-width: 850px) {
+    .featuresIcons {
+        gap: 10%; 
+        flex-direction: column;
+    }
+
+    .featuresIcon {
+        margin: 10px auto; 
+    }
+
+    .featuresBox h1 {
+        font-size: 2rem; 
+    }
+
+    .featuresBox h6 {
+        font-size: 0.9rem;
+    }
+
+    
 }

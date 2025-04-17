@@ -1,52 +1,63 @@
 @use "./variables";
 @use "./fonts";
 
-
-.team{
+.team {
     background-color: white;
     padding: 4% 6%;        
 }
 
-.teamRow{
+.teamRow {
     display: flex;
     justify-content: center;
     text-align: center;
     padding-bottom: 4%;
     gap: 50px;
-  
+    flex-wrap: wrap; 
 }
 
-.teamTitle{
+.teamTitle {
     text-align: center;
 }
 
-
-.teamTitle h6{
+.teamTitle h6 {
     color: variables.$darker-yellow;
     text-transform: uppercase;
     font-size: 0.8rem;
 }
 
-.teamTitle h1{
+.teamTitle h1 {
     font-size: 3rem;
     font-weight: 600;
     padding-bottom: 50px;
     color: black;
 }
 
-.personCard{
-    width: 400px;
+.personCard {
+    width: 22%; 
+    margin-bottom: 30px; 
+    text-align: center;
+    min-width: 220px;
 }
 
-.personCard img{
+.personCard img {
     width: 200px;
     transition: .5s;
     padding-bottom: 10px;
 }
 
-.personCard img:hover{
+.personCard img:hover {
     transform: scale(1.1);
     transition: .5s;
 }
 
+@media screen and (max-width: 1440px) {
+    .personCard {
+        width: 45%; 
+    }
+}
 
+@media screen and (max-width: 980px) {
+    .personCard {
+        width: 100%; 
+    }
+}

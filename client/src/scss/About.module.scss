@@ -37,3 +37,43 @@
     max-width: 100%;
     width: 500px;
 }
+
+
+@media screen and (max-width: 1268px) {
+    .about {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+      padding-bottom: 30%;
+      text-align: center;
+      gap: 30px;
+    }
+  
+    .aboutBox {
+      width: 100%;
+    }
+  
+    .aboutBox:first-child {
+      order: 2;
+    }
+  
+    .aboutBox:last-child {
+      order: 1;
+    }
+  
+    .about img {
+      max-width: 80%;
+      margin: 0 auto;
+    }
+  }
+  
+  @media screen and (max-width: 1030px) {
+    .about {
+
+      padding-bottom: 10%;
+
+    }
+  
+  }
+  
