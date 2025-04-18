@@ -5,6 +5,7 @@
     display: flex;
     justify-content: center;
     height: 700px;
+    margin-inline: 30px;
 
 }
 
@@ -155,4 +156,8 @@
   .buttons{
     gap: 20px;
     display: flex;
+  }
+
+  @media screen and (max-width: 700px) {
+
   }

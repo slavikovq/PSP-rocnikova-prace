@@ -140,3 +140,16 @@
 #month {
   font-size: 1rem;
 }
+
+@media screen and (max-width: 790px) {
+  .post {
+    max-width: 600px;
+  }
+}
+
+
+@media screen and (max-width: 700px) {
+  .post {
+    max-width: 500px;
+  }
+}
