@@ -1,7 +1,6 @@
 @use "./variables";
 @use "./fonts";
 
-
 .card {
   background-color: variables.$bg-dark;
   color: white;
@@ -14,13 +13,14 @@
   justify-content: space-evenly;
   gap: 30px;
   transition: 0.2s ease;
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.01);
-  }
 }
 
-.card h1{
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.01);
+}
+
+.card h1 {
   color: variables.$darker-yellow;
   font-size: 1.6rem;
 }
@@ -46,20 +46,96 @@
 
 .icon {
   width: 25px;
+  transition: all 0.2s ease-in-out;
+}
+
+.icon:hover {
+  cursor: pointer;
+  transform: scale(1.2);
 }
 
 #icons {
   display: flex;
   gap: 30px;
   padding-left: 20px;
-  
 }
 
-.icon {
-  transition: all 0.2s ease-in-out;
+@media (max-width: 1200px) {
+  .card {
+    width: 500px;
+  }
 
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.2);
+  .card h1 {
+    color: variables.$darker-yellow;
+    font-size: 1.6rem;
+  }
+
+  #content {
+    max-height: 80px;
+    width: 150px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .card {
+    width: 450px;
+  }
+
+  .card h1 {
+    color: variables.$darker-yellow;
+    font-size: 1.6rem;
+  }
+
+  #content {
+    max-height: 80px;
+    width: 100px;
+  }
+}
+
+@media (max-width: 920px) {
+  .card {
+    width: 600px;
+  }
+
+  .card h1 {
+    color: variables.$darker-yellow;
+    font-size: 1.6rem;
+  }
+
+  #content {
+    max-height: 80px;
+    width: 250px;
+  }
+}
+
+@media (max-width: 800px) {
+  .card {
+    width: 500px;
+  }
+
+  .card h1 {
+    color: variables.$darker-yellow;
+    font-size: 1.6rem;
+  }
+
+  #content {
+    max-height: 80px;
+    width: 150px;
+  }
+}
+
+@media (max-width: 700px) {
+  .card {
+    width: 450px;
+  }
+
+  .card h1 {
+    color: variables.$darker-yellow;
+    font-size: 1.6rem;
+  }
+
+  #content {
+    max-height: 80px;
+    width: 100px;
   }
 }

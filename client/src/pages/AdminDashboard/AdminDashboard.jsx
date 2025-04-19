@@ -4,6 +4,7 @@ import { useAuth } from "../../context/AuthProvider";
 import { getAllPosts } from "../../models/post";
 import { useState, useEffect } from "react";
 import { getAllUsers } from "../../models/user";
+import CountUp from "react-countup";
 
 export default function AdminDashboard() {
   const { user } = useAuth();
@@ -27,32 +28,31 @@ export default function AdminDashboard() {
   }, []);
 
   return (
-    <>
-      <div className={dashboardStyles.page}>
-        <AdminBar />
-        <div className={dashboardStyles.edit}>
-          <div className={dashboardStyles.bg}>
-            <div className={dashboardStyles.container}>
-              <div className={dashboardStyles.greeting}>
-                <h1>
-                  Welcome, {user.firstName} {user.lastName}! <br /> Time to
-                  conquer today’s challenges!
-                </h1>
+    <div className={dashboardStyles.page}>
+      <AdminBar />
+      <div className={dashboardStyles.edit}>
+        <div className={dashboardStyles.bg}>
+          <div className={dashboardStyles.container}>
+            <div className={dashboardStyles.greeting}>
+              <h1>
+                Welcome, {user.firstName} {user.lastName}! <br /> Time to conquer today’s challenges!
+              </h1>
+            </div>
+            <div className={dashboardStyles.statistics}>
+              <div className={dashboardStyles.statistic}>
+                <h3>REGISTERED USERS</h3>
+    
+                <CountUp end={userCount} duration={2} separator="," className={dashboardStyles.countUp} />
               </div>
-              <div className={dashboardStyles.statistics}>
-                <div className={dashboardStyles.statistic}>
-                  <h3>REGISTERED USERS</h3>
-                  <p>{userCount}</p>
-                </div>
-                <div className={dashboardStyles.statistic}>
-                  <h3>PUBLISHED POSTS</h3>
-                  <p>{postCount}</p>
-                </div>
+              <div className={dashboardStyles.statistic}>
+                <h3>PUBLISHED POSTS</h3>
+    
+                <CountUp end={postCount} duration={2} separator="," className={dashboardStyles.countUp} />
               </div>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

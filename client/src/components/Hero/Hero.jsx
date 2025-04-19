@@ -19,7 +19,7 @@ export default function Hero() {
             surface treatment
           </p>
           <div className={heroStyles.buttons}>
-            <Link to={"/"}><button id={heroStyles.fullBtn}><img src={phone} alt="" />Contact</button></Link>
+            <Link to={"/contact"}><button id={heroStyles.fullBtn}><img src={phone} alt="" />Contact</button></Link>
             <Link to={"/news"}><button id={heroStyles.clearBtn}><img src={news} alt="" />News</button></Link>
           </div>
         </div>

@@ -15,58 +15,63 @@ export default function Navbar() {
   };
 
   return (
-    <nav className={navbarStyles.navbar}>
-      <div className={navbarStyles.logo}>
-        <Link to={"/"}>
-          <img src={logo} alt="logo" />
-        </Link>
-      </div>
-
-      <div className={navbarStyles.hamburger} onClick={toggleMenu}>
-        <div className={navbarStyles.bar}></div>
-        <div className={navbarStyles.bar}></div>
-        <div className={navbarStyles.bar}></div>
-      </div>
-
-      <div className={`${navbarStyles.menu} ${menuOpen ? navbarStyles.show : ""}`}>
-        
-        <ul>
+    <>
+      <nav className={navbarStyles.navbar}>
+        <div className={navbarStyles.logo}>
           <Link to={"/"}>
-            <li>Home</li>
+            <img src={logo} alt="logo" />
           </Link>
-          <HashLink to={"/#About-Us"}>
-            <li>About</li>
-          </HashLink>
-          <HashLink to={"/#Product"}>
-            <li>Product</li>
-          </HashLink>
-          <HashLink to={"/#Added-Value"}>
-            <li>Features</li>
-          </HashLink>
-          <HashLink to={"/#Team"}>
-            <li>Team</li>
-          </HashLink>
-          {user ? (
-            <Link to={"/panel"}>
-              <button>
-                <div>
-                  Profile
-                  <img src={userPfp} alt="" />
-                </div>
-              </button>
+        </div>
+
+        <div className={navbarStyles.hamburger} onClick={toggleMenu}>
+          <div className={navbarStyles.bar}></div>
+          <div className={navbarStyles.bar}></div>
+          <div className={navbarStyles.bar}></div>
+        </div>
+
+        <div
+          className={`${navbarStyles.menu} ${
+            menuOpen ? navbarStyles.show : ""
+          }`}
+        >
+          <ul>
+            <Link to={"/"}>
+              <li>Home</li>
             </Link>
-          ) : (
-            <Link to={"/sign-in"}>
-              <button>
-                <div>
-                  Sign In
-                  <img src={userPfp} alt="" />
-                </div>
-              </button>
-            </Link>
-          )}
-        </ul>
-      </div>
-    </nav>
+            <HashLink to={"/#About-Us"}>
+              <li>About</li>
+            </HashLink>
+            <HashLink to={"/#Product"}>
+              <li>Product</li>
+            </HashLink>
+            <HashLink to={"/#Added-Value"}>
+              <li>Features</li>
+            </HashLink>
+            <HashLink to={"/#Team"}>
+              <li>Team</li>
+            </HashLink>
+            {user ? (
+              <Link to={"/panel"}>
+                <button>
+                  <div>
+                    Profile
+                    <img src={userPfp} alt="" />
+                  </div>
+                </button>
+              </Link>
+            ) : (
+              <Link to={"/sign-in"}>
+                <button>
+                  <div>
+                    Sign In
+                    <img src={userPfp} alt="" />
+                  </div>
+                </button>
+              </Link>
+            )}
+          </ul>
+        </div>
+      </nav>
+    </>
   );
 }

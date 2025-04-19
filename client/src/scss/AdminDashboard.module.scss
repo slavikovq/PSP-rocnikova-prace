@@ -4,65 +4,118 @@
 .page {
   display: flex;
   width: 100%;
+  height: 100vh;
+  background-color: variables.$bg-dark;
 }
 
 .edit {
-  flex: 1; /* Zajistí, že obsah bude zabírat zbývající prostor vedle sidebaru */
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 20px; /* Aby byl mezi sidebar a obsahem mezera */
+  padding: 20px;
+  padding-left: calc(340px + 20px);
 }
 
 .bg {
-  background-color: #14111b;
+  background: variables.$admin-col;
   width: 100%;
   height: 100%;
-  border-radius: 12px;
+  max-width: 1450px;
+  border-radius: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+  padding: 60px 30px;
 }
 
 .statistics {
   display: flex;
-  justify-content: space-evenly;
-  gap: 100px; /* Zmenšili jsme mezeru pro menší displeje */
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 80px;
 }
 
 .statistic {
   color: white;
   text-align: center;
-  border: 1px solid #222;
-  height: 300px;
-  width: 350px;
-  border-radius: 10px;
+  background-color: rgb(30, 27, 39);
+  height: 280px;
+  width: 100%;
+  max-width: 320px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: .2s ease;
-  user-select: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  border: 1px solid transparent;
+  cursor: pointer;
+}
 
-  &:hover {
-    transform: scale(1.1);
-    transition: .2s ease;
-    border: 1px solid variables.$darker-yellow;
-  }
+.statistic:hover {
+  transform: translateY(-6px) scale(1.04);
+  border-color: variables.$darker-yellow;
+  box-shadow: 0 10px 24px rgba(variables.$darker-yellow, 0.2);
 }
 
 .statistic h3 {
   font-size: 1.4rem;
-  padding-bottom: 20px;
+  color: variables.$lighter-yellow;
+  margin-bottom: 14px;
+  font-weight: 500;
 }
 
-.statistic p {
-  font-size: 5rem;
+.statistic .countUp {
+  font-size: 4.5rem;
+  font-weight: 600;
+  color: white;
 }
 
 .greeting {
   color: white;
   text-align: center;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
+}
+
+.greeting h1 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: white;
+}
+
+@media (max-width: 920px) {
+  .page {
+    flex-direction: column;
+  }
+
+  .edit {
+    padding-left: 0;
+    padding: 20px;
+  }
+
+  .statistics {
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+
+  .statistic {
+    max-width: 220px;
+    height: 200px;
+  }
+
+  .statistic h3 {
+    font-size: 1.1rem;
+  }
+
+  .statistic .countUp {
+    font-size: 3rem;
+  }
+
+  .greeting h1 {
+    font-size: 1.8rem;
+  }
 }

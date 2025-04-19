@@ -1,126 +1,180 @@
 @use "./variables";
 @use "./fonts";
 
-.sidebar{
-    padding: 20px;
-    color: rgb(255, 255, 255);
-    width: 340px;
-    text-align: center;
-    height: 100vh;
-    box-shadow: 6px 0px 4px 0px rgba(0,0,0,0.25);
+.sidebar {
+  padding: 20px;
+  color: white;
+  width: 340px;
+  text-align: center;
+  height: 100vh;
+  box-shadow: 6px 0 4px rgba(0, 0, 0, 0.25);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transition: transform 0.3s ease;
+  background-color: variables.$bg-dark;
 }
 
+.show {
+  transform: translateX(0);
+}
+
+.hide {
+  transform: translateX(-100%);
+}
 
 ul {
-    list-style: none; 
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .button {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 10px;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-    margin: 10px;
-    border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  margin: 10px;
+  border-radius: 8px;
 }
 
-.button:hover{
-    background-color: rgba(255, 255, 255, 0.041);
+.button:hover {
+  background-color: rgba(255, 255, 255, 0.041);
 }
-
 
 .button img {
-    width: 28px;
-    height: auto;
+  width: 28px;
+  height: auto;
 }
 
-#logo{
-    width: 150px;
-    
+#logo {
+  width: 150px;
 }
 
 .user {
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    gap: 20px;
-    padding: 20px;
-    align-items: center; 
-    justify-content: center;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.user div {
+  color: variables.$gray;
 }
 
 #user {
-    width: 50px;
+  width: 50px;
 }
 
-#leave{
-    width: 20px;
+#leave {
+  width: 20px;
 }
 
-#email{
-    max-width: 150px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+#email {
+  max-width: 220px;
 }
 
-#name{
-    text-align: left;
-    color: white;
+#name {
+  text-align: left;
+  color: white;
 }
-
-.user div{
-    color: variables.$gray;
-}
-
-
-// HR
 
 .hrText {
-    border: 0;
-    font-size: 14px;
-    height: 1.8em;
-    line-height: 1em;
-    position: relative;
-    text-align: center;
-    text-transform: uppercase;
-  }
+  border: 0;
+  font-size: 14px;
+  height: 1.8em;
+  line-height: 1em;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+}
 
-  .hrText::before {
-    content: "";
-    background: linear-gradient(to right, transparent, variables.$lighter-yellow, transparent);
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: 100%;
-    height: 1px;
+.hrText::before {
+  content: "";
+  background: linear-gradient(to right, transparent, variables.$lighter-yellow, transparent);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
 }
 
 .hrText::after {
-    background-color: variables.$bg-dark;
-    color: variables.$lighter-yellow;
-    content: attr(data-content);
-    line-height: 1.5em;
-    padding: 0 7px;
-    position: relative;
+  background-color: variables.$bg-dark;
+  color: variables.$lighter-yellow;
+  content: attr(data-content);
+  line-height: 1.5em;
+  padding: 0 7px;
+  position: relative;
 }
 
 .hrLine {
-    border: 0;
-    height: 1.8em;
-    line-height: 1em;
-    position: relative;
+  border: 0;
+  height: 1.8em;
+  line-height: 1em;
+  position: relative;
 }
 
 .hrLine::before {
-    content: "";
-    background: linear-gradient(to right, transparent, variables.$lighter-yellow, transparent); 
-    position: absolute;
-    left: 0;
-    top: 50%;
+  content: "";
+  background: linear-gradient(to right, transparent, variables.$lighter-yellow, transparent);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 1px;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  padding: 20px;
+  z-index: 101;
+}
+
+.hamburger .bar {
+  height: 4px;
+  width: 34px;
+  background-color: variables.$lighter-yellow;
+  margin: 3px;
+  border-radius: 4px;
+}
+
+@media (max-width: 920px) {
+  .sidebar {
     width: 100%;
-    height: 1px;
+    position: absolute;
+  }
+
+  .hamburger {
+    display: flex;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+  }
+
+  .user {
+    gap: 30px;
+    margin-left: 10px;
+  }
+
+  #email {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 400px) {
+  .user {
+    gap: 10px;
+  }
+
+  #email {
+    max-width: 200px;
+  }
 }

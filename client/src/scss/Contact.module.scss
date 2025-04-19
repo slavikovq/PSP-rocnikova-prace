@@ -1,0 +1,111 @@
+@use "./variables";
+@use "./fonts";
+
+.contact {
+  display: flex;
+  padding: 6% 8%;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+}
+
+.contactBox {
+  max-width: 700px;
+}
+
+.contactBox h6 {
+  color: variables.$lighter-yellow;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.contactBox h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.contactBox p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.8rem;
+  color: variables.$gray;
+}
+
+.contactInfo p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: white;
+}
+
+.contactInfo p a {
+  color: variables.$lighter-yellow;
+  text-decoration: none;
+}
+
+.contactInfo p a:hover {
+  text-decoration: underline;
+}
+
+.label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: black;
+}
+
+.addressBlock {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 1rem 1.2rem;
+    border-left: 4px solid variables.$lighter-yellow;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+.address {
+    font-style: normal;
+    color: white;
+    line-height: 1.6rem;
+    font-size: 1rem;
+    margin: 0;
+  }
+
+.socials {
+  margin-top: 1.5rem;
+}
+
+.socials a {
+  margin-right: 1.5rem;
+  font-weight: 500;
+  color: variables.$lighter-yellow;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.socials a:hover {
+  color: variables.$darker-yellow;
+}
+
+@media screen and (max-width: 768px) {
+    .contact {
+      text-align: center;
+    }
+  
+    .contactBox h1 {
+      font-size: 2.2rem;
+    }
+  
+    .contactBox p {
+      font-size: 1.05rem;
+    }
+  
+    .socials a {
+      display: inline-block;
+      margin: 0.5rem 1rem 0 0;
+    }
+  
+    .addressBlock {
+      text-align: center;
+    }
+  }
+  

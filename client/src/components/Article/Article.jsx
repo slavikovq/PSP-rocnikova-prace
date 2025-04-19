@@ -9,6 +9,7 @@ import { getUserById } from "../../models/user";
 import DOMPurify from "dompurify";
 import { useAuth } from "../../context/AuthProvider";
 import { likePost, dislikePost, getPostById } from "../../models/post";
+import { alert } from "../../function/sweetalert";
 
 export default function Article() {
   const { id } = useParams();

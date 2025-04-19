@@ -14,6 +14,7 @@ import PostList from "./PostList/PostList";
 import LikedPosts from "./LikedPosts/LikedPosts";
 import Administrators from "./Administrators/Administrators";
 import EditPost from "./EditPost/EditPost";
+import Contact from "./Contact/Contact";
 
 export default function AppRoutes() {
   return (
@@ -39,6 +40,7 @@ export default function AppRoutes() {
             </Route>
           </Route>
           <Route path="/news" element={<News />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/article/:id" element={<ArticlePage />} />
         </Routes>
       </BrowserRouter>

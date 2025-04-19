@@ -4,24 +4,31 @@
 .page {
   display: flex;
   width: 100%;
+  height: 100vh;
+  background-color: variables.$bg-dark;
 }
 
 .edit {
-  width: 82%;
-  align-items: center;
+  flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
+  padding: 20px;
+  padding-left: calc(340px + 20px);
 }
 
 .bg {
-  background-color: #14111b;
-  width: 93%;
-  height: 93%;
-  border-radius: 12px;
+  background: variables.$admin-col;
+  width: 100%;
+  height: 100%;
+  max-width: 1450px;
+  border-radius: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+  padding: 60px 30px;
 }
 
 .form {
@@ -30,8 +37,9 @@
   display: flex;
   align-items: center;
   gap: 20px;
+  white-space: normal;
+  word-wrap: break-word;
 }
-
 
 .form div {
   width: 100%;
@@ -45,40 +53,33 @@
   width: 100%;
 }
 
-#title{
-  resize: none;
+#title,
+#content,
+#detail {
   width: 100%;
-  height: 50px;
   border-radius: 10px;
   padding: 8px;
   background-color: #0e0c13;
   color: white;
   border: 1px solid #222;
   transition: border 0.2s ease-in-out;
-
-  &:focus {
-    border-color: variables.$darker-yellow;
-    outline: none;
-  }
 }
 
-#content{
-  margin-top: 10px;
-  resize: none;
-  width: 100%;
-  height: 50px;
-  border-radius: 10px;
-  padding: 8px;
-  background-color: #0e0c13;
-  color: white;
-  border: 1px solid #222;
-  transition: border 0.2s ease-in-out;
-  height: 500px;
+#title:focus,
+#content:focus,
+#detail:focus {
+  border-color: variables.$darker-yellow;
+  outline: none;
+}
 
-  &:focus {
-    border-color: variables.$darker-yellow;
-    outline: none;
-  }
+#title {
+  height: 50px;
+}
+
+#content {
+  margin-top: 10px;
+  height: 500px;
+  resize: none;
 }
 
 #details {
@@ -94,22 +95,6 @@
   gap: 6px;
 }
 
-#detail {
-  width: 100%;
-  height: 50px;
-  border-radius: 10px;
-  padding: 8px;
-  background-color: #0e0c13;
-  color: white;
-  border: 1px solid #222;
-  transition: border 0.2s ease-in-out;
-
-  &:focus {
-    border-color: variables.$darker-yellow;
-    outline: none;
-  }
-}
-
 #postB {
   background-color: variables.$darker-yellow;
   width: 180px;
@@ -120,81 +105,165 @@
   transition: all 0.2s ease-in-out;
   font-weight: bold;
   border: none;
-  
-
-  &:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-  }
 }
 
+#postB:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
 
 .customQuill {
   margin-top: 10px;
   height: 300px;
+}
 
-  :global {
-    .ql-container {
-      border: 1px solid #222;
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-      background-color: variables.$bg-dark;
-      color: white;
-    }
+.customQuill :global .ql-container {
+  border: 1px solid #222;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: variables.$bg-dark;
+  color: white;
+}
 
-    .ql-toolbar {
-      border: 1px solid #222;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-      background-color: variables.$bg-dark;
-      color: white;
+.customQuill :global .ql-toolbar {
+  border: 1px solid #222;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: variables.$bg-dark;
+  color: white;
+}
 
-      button {
-        &:hover .ql-stroke, &:hover .ql-fill {
-          stroke: variables.$darker-yellow;
-        }
+.customQuill :global .ql-toolbar button:hover .ql-stroke,
+.customQuill :global .ql-toolbar button:hover .ql-fill {
+  stroke: variables.$darker-yellow;
+}
 
-        &.ql-active .ql-stroke, &.ql-active .ql-fill {
-          stroke: variables.$darker-yellow;
-        }
-      }
+.customQuill :global .ql-toolbar button.ql-active .ql-stroke,
+.customQuill :global .ql-toolbar button.ql-active .ql-fill {
+  stroke: variables.$darker-yellow;
+}
 
-      .ql-picker-label {
-        &:hover, &.ql-active {
-          color: variables.$darker-yellow;
+.customQuill :global .ql-toolbar .ql-picker-label:hover,
+.customQuill :global .ql-toolbar .ql-picker-label.ql-active {
+  color: variables.$darker-yellow;
+}
 
-          .ql-stroke, .ql-fill {
-            stroke: variables.$darker-yellow;
-          }
-        }
-      }
+.customQuill :global .ql-toolbar .ql-picker-label:hover .ql-stroke,
+.customQuill :global .ql-toolbar .ql-picker-label:hover .ql-fill,
+.customQuill :global .ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+.customQuill :global .ql-toolbar .ql-picker-label.ql-active .ql-fill {
+  stroke: variables.$darker-yellow;
+}
 
-      .ql-picker-item.ql-selected {
-        color: variables.$darker-yellow;
-      }
-    }
+.customQuill :global .ql-toolbar .ql-picker-item.ql-selected {
+  color: variables.$darker-yellow;
+}
 
-    .ql-bold {
-      color: variables.$darker-yellow;
-    }
+.customQuill :global .ql-toolbar .ql-bold {
+  color: variables.$darker-yellow;
+}
 
-    .ql-picker-options {
-      background-color: variables.$bg-dark;
-      border-radius: 5px;
+.customQuill :global .ql-picker-options {
+  background-color: variables.$bg-dark;
+  border-radius: 5px;
+}
 
-      .ql-picker-item {
-        color: white;
-        padding: 5px 10px;
+.customQuill :global .ql-picker-options .ql-picker-item {
+  color: white;
+  padding: 5px 10px;
+}
 
-        &:hover {
-          color: variables.$darker-yellow;
-        }
-      }
-    }
+.customQuill :global .ql-picker-options .ql-picker-item:hover {
+  color: variables.$darker-yellow;
+}
 
-    .ql-editor {
-      color: white;
-    }
+.customQuill :global .ql-editor {
+  color: white;
+}
+
+
+@media (max-width: 1500px) {
+  .form {
+    max-width: 900px;
   }
 }
 
+@media (max-width: 1400px) {
+  .form {
+    max-width: 850px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .form {
+    max-width: 750px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .form {
+    max-width: 650px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .form {
+    max-width: 550px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .form {
+    max-width: 450px;
+  }
+}
+
+@media (max-width: 920px) {
+  .edit {
+    padding-left: 0;
+    padding: 20px;
+  }
+
+  .bg {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .form {
+    flex-direction: column;
+    gap: 20px;
+    max-width: 650px;
+  }
+
+  #details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  #details div {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #postB {
+    width: 100%;
+    margin-top: 70px;
+  }
+
+  .customQuill {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .form {
+    max-width: 550px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .form {
+    max-width: 450px;
+  }
+}
