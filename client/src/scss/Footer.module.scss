@@ -2,58 +2,78 @@
 @use "./fonts";
 
 .footer {
-    padding: 4% 6%;
-    background-color: variables.$bg-dark;
+  background-color: variables.$bg-dark;
+  padding: 4% 6%;
+  border-top: 3px solid white;
+}
+
+.footerInner {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .footerBox {
-    display: flex;
-    justify-content: space-between;
-    color: white;
-    gap: 50px;
-    flex-wrap: wrap; 
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: white;
+  flex-wrap: wrap;
+  gap: 40px;
+  text-align: center;
 }
 
-.footerBox div {
-    text-align: center;
-    flex: 1; 
-    min-width: 150px;
+.address p {
+  margin: 4px 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
-#linkedin {
-    width: 100px;
-    margin-top: 20px;
+.centerBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 }
 
-#CBIC {
-    width: 120px;
-    margin-top: 20px;
+.linkedin {
+  width: 100px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  margin-top: 10px;
+
+  &:hover {
+    transform: scale(1.1);
+    opacity: 0.85;
+  }
+}
+
+.badgeBox {
+  display: flex;
+  justify-content: center;
+}
+
+.CBIC {
+  width: 120px;
+  margin-top: 20px;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 @media screen and (max-width: 980px) {
-    .footerBox {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
+  .footerBox {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
 
-    .footerBox div:last-child {
-        margin-top: 20px; 
-    }
+  .linkedin,
+  .CBIC {
+    width: 120px;
+  }
 
-
-    .footerBox div:nth-child(2) {
-        order: 3;
-    }
-
-
-    #linkedin {
-        order: 2; 
-        width: 120px;
-    }
-
-    #CBIC {
-        order: 1; 
-        width: 120px;
-    }
+  .CBIC {
+    margin-top: 10px;
+  }
 }
