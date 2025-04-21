@@ -105,6 +105,10 @@ export default function PanelEditProfile() {
   };
 
   const handleDeleteUser = async () => {
+    if (user.role === "owner") {
+      return alert("error", "Owners cannot delete their account!");
+    } 
+
     const { value } = await Swal.fire({
       title: "Delete your account",
       html: `
