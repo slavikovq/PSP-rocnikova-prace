@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 import DOMPurify from "dompurify";
 import { getUserById } from "../../models/user";
 import { useState, useEffect } from "react";
-import Swal from "sweetalert2"
-import {alert} from "../../function/sweetalert"
-import {deletePost} from "../../models/post"
+import Swal from "sweetalert2";
+import { alert } from "../../function/sweetalert";
+import { deletePost } from "../../models/post";
 
 export default function PostCard({ title, creator, dateCreated, content, id }) {
   const [creatorName, setCreatorName] = useState();
@@ -17,7 +17,11 @@ export default function PostCard({ title, creator, dateCreated, content, id }) {
   useEffect(() => {
     const load = async () => {
       const res = await getUserById(creator);
-      if (res.status === 404) return setCreatorName(null);
+      if (res.status === 404) {
+        setCreatorName(null);
+        setIsLoading(false); 
+        return;
+      }
       if (res.status === 200) {
         const name = `${res.payload.firstName} ${res.payload.lastName}`;
         setIsLoading(false);
@@ -37,10 +41,10 @@ export default function PostCard({ title, creator, dateCreated, content, id }) {
   }
 
   const handleDelete = async (e, id) => {
-    e.preventDefault()
+    e.preventDefault();
     const Alert = Swal.mixin({
       buttonsStyling: true,
-    }) 
+    });
     Alert.fire({
       title: "Are you sure you want to delete this post?",
       icon: "warning",
@@ -52,16 +56,16 @@ export default function PostCard({ title, creator, dateCreated, content, id }) {
       cancelButtonColor: "#cfab4e",
       reverseButtons: true,
     }).then(async (result) => {
-      if(result.isConfirmed){
+      if (result.isConfirmed) {
         const data = await deletePost(id);
-        if(data.status === 200){
+        if (data.status === 200) {
           alert("success", "Post was deleted!");
           window.location.reload();
           return;
         }
       }
-    })
-  }
+    });
+  };
 
   return (
     <>
@@ -74,7 +78,7 @@ export default function PostCard({ title, creator, dateCreated, content, id }) {
           />
         </div>
         <div id={postCardStyles.details}>
-          <p id={postCardStyles.detail}>{creatorName}</p>
+        <p id={postCardStyles.detail}>{creatorName ?? "Deleted user"}</p>
           <p id={postCardStyles.detail}>{convertDate()}</p>
         </div>
         <div id={postCardStyles.icons}>
@@ -82,7 +86,12 @@ export default function PostCard({ title, creator, dateCreated, content, id }) {
             <img src={edit} alt="" className={postCardStyles.icon} />
           </Link>
           <Link>
-            <img src={trash} alt="" onClick={(e) => handleDelete(e, id)} className={postCardStyles.icon} />
+            <img
+              src={trash}
+              alt=""
+              onClick={(e) => handleDelete(e, id)}
+              className={postCardStyles.icon}
+            />
           </Link>
         </div>
       </div>

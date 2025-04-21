@@ -21,7 +21,12 @@ export default function Post({ title, creator, dateCreated, content, id }) {
   useEffect(() => {
     const load = async () => {
       const res = await getUserById(creator);
-      if (res.status === 404) return setCreatorName(null);
+      if (res.status === 404) {
+        setCreatorName(null);
+        setIsLoading(false); 
+        return;
+      }
+      
       if (res.status === 200) {
         const name = `${res.payload.firstName} ${res.payload.lastName}`;
         setIsLoading(false);
@@ -87,7 +92,7 @@ export default function Post({ title, creator, dateCreated, content, id }) {
           <div>
             <h1>{title}</h1>
             <div className={postStyles.nameDate}>
-              <p id={postStyles.publisher}>{creatorName}</p>
+              <p id={postStyles.publisher}>{creatorName ?? "Deleted user"}</p>
               <p id={postStyles.dot}>●</p>
               <div className={postStyles.date}>
                 <img src={calendar} alt="" id={postStyles.calendar} />

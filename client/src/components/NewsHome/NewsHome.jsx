@@ -11,6 +11,7 @@ export default function NewsHome() {
   useEffect(() => {
     const load = async () => {
       const res = await getAllPosts();
+      console.log(res.status);
       if(res.status === 500 || res.status === 404) return setIsLoading(null);
       if(res.status === 200){
         setPosts(res.payload);
@@ -27,7 +28,6 @@ export default function NewsHome() {
   if(isLoading){
     return <p>Loading...</p>
   }
-
 
   return (
     <>
