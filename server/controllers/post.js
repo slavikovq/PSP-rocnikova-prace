@@ -1,4 +1,3 @@
-const post = require("../models/post");
 const Post = require("../models/post");
 
 exports.getAllPosts = async (req, res) => {
@@ -11,6 +10,7 @@ exports.getAllPosts = async (req, res) => {
         payload: data,
       });
     }
+    return res.status(404).send({message: "Posts not found!"})
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -26,6 +26,7 @@ exports.getAllUserPosts = async (req, res) => {
         payload: data,
       });
     }
+    return res.status(404).send({message: "Posts not found!"})
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

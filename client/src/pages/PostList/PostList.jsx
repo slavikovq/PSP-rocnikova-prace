@@ -7,15 +7,14 @@ import { getAllPosts, getAllUserPosts } from "../../models/post";
 import { useAuth } from "../../context/AuthProvider";
 
 export default function PostList() {
-  const [posts, setPosts] = useState();
+  const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { user } = useAuth();
 
   useEffect(() => {
     const load = async () => {
-      const res =
-        user.role === "admin" ? await getAllUserPosts() : await getAllPosts();
-      if (res.status === 500 || res.status === 404) return setIsLoading(null);
+      const res = user.role === "admin" ? await getAllUserPosts() : await getAllPosts();
+      if (res.status === 500 || res.status === 404) return setIsLoading(false);
       if (res.status === 200) {
         setPosts(res.payload);
         setIsLoading(false);
@@ -23,10 +22,6 @@ export default function PostList() {
     };
     load();
   }, []);
-
-  if (isLoading === null) {
-    return <p>Not found!</p>;
-  }
 
   if (isLoading) {
     return <p>Loading...</p>;

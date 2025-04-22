@@ -5,14 +5,13 @@ import { useEffect, useState } from "react";
 import { getAllPosts } from "../../models/post";
 
 export default function NewsHome() {
-  const [posts, setPosts] = useState();
+  const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const load = async () => {
       const res = await getAllPosts();
-      console.log(res.status);
-      if(res.status === 500 || res.status === 404) return setIsLoading(null);
+      if(res.status === 500 || res.status === 404) return setIsLoading(false);
       if(res.status === 200){
         setPosts(res.payload);
         setIsLoading(false);
@@ -20,10 +19,6 @@ export default function NewsHome() {
     }
     load();
   }, [])
-
-  if(isLoading === null){
-    return <p>Not found!</p>
-  }
 
   if(isLoading){
     return <p>Loading...</p>

@@ -39,7 +39,7 @@ export default function LikedPosts() {
           <div className={likedPostsStyles.bg}>
             <div>
               <div className={likedPostsStyles.row}>
-                {posts.map((post) => (
+                {posts.slice().reverse().map((post) => (
                   <LikedPost
                     key={post._id}
                     title={post.title}
