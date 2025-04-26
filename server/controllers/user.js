@@ -142,17 +142,7 @@ exports.verifyPassword = async (req, res) => {
 
 exports.deleteUser = async (req, res) => {
   try {
-    const data = {
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      password: req.body.password,
-      pfp: req.body.pfp,
-      role: req.body.role,
-      dataCreated: req.body.dataCreated,
-    };
-
-    const result = await User.findByIdAndDelete(req.params.id, data);
+    const result = await User.findByIdAndDelete(req.params.id);
 
     if (result) {
       return res

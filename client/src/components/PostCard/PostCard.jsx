@@ -1,4 +1,3 @@
-import AdminBar from "../../components/AdminBar/AdminBar";
 import postCardStyles from "../../scss/PostCard.module.scss";
 import edit from "../../assets/icons/edit.svg";
 import trash from "../../assets/icons/trash.svg";
@@ -19,7 +18,7 @@ export default function PostCard({ title, creator, dateCreated, content, id }) {
       const res = await getUserById(creator);
       if (res.status === 404) {
         setCreatorName(null);
-        setIsLoading(false); 
+        setIsLoading(false);
         return;
       }
       if (res.status === 200) {
@@ -48,13 +47,17 @@ export default function PostCard({ title, creator, dateCreated, content, id }) {
     Alert.fire({
       title: "Are you sure you want to delete this post?",
       icon: "warning",
-      showCancelButton: true,
       confirmButtonText: "Confirm",
-      color: "black",
+      showCancelButton: true,
+      color: "white",
+      background: "#0E0C13",
       confirmButtonColor: "#cfab4e",
       cancelButtonText: "Cancel",
       cancelButtonColor: "#cfab4e",
-      reverseButtons: true,
+      customClass: {
+        confirmButton: postCardStyles.swalButton,
+        cancelButton: postCardStyles.swalButton,
+      },
     }).then(async (result) => {
       if (result.isConfirmed) {
         const data = await deletePost(id);
@@ -78,7 +81,7 @@ export default function PostCard({ title, creator, dateCreated, content, id }) {
           />
         </div>
         <div id={postCardStyles.details}>
-        <p id={postCardStyles.detail}>{creatorName ?? "Deleted user"}</p>
+          <p id={postCardStyles.detail}>{creatorName ?? "Deleted user"}</p>
           <p id={postCardStyles.detail}>{convertDate()}</p>
         </div>
         <div id={postCardStyles.icons}>

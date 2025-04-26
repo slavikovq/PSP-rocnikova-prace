@@ -1,6 +1,5 @@
 import editStyles from "../../scss/EditProfile.module.scss";
 import AdminBar from "../../components/AdminBar/AdminBar";
-import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider";
 import { useState } from "react";
 import { deleteUser, editUser, verifyUserPassword } from "../../models/user";
@@ -63,6 +62,11 @@ export default function PanelEditProfile() {
       background: "#0E0C13",
       cancelButtonText: "Cancel",
       cancelButtonColor: "#cfab4e",
+      customClass: {
+        confirmButton: editStyles.swalButton,
+        cancelButton: editStyles.swalButton,
+      },
+      
 
       preConfirm: () => {
         const oldPasssword = document.getElementById("passwordC-input").value;
@@ -124,6 +128,11 @@ export default function PanelEditProfile() {
       background: "#0E0C13",
       cancelButtonText: "Cancel",
       cancelButtonColor: "#cfab4e",
+      customClass: {
+        confirmButton: editStyles.swalButton,
+        cancelButton: editStyles.swalButton,
+      },
+      
 
       preConfirm: () => {
         const password = document.getElementById("password-input").value;

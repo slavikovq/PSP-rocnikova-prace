@@ -33,7 +33,7 @@ export default function Administrators() {
       await checkInputs(userData);
   
       if (userData.payload.role === "admin")
-        return alert("error", "User is already admin!");
+        return alert("error", "User is already an administrator!");
   
       await editUser(userData.payload._id, { role: "admin" });
       alert("success", "Administrator role is successfully assigned!");

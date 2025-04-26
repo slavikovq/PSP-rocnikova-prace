@@ -10,7 +10,7 @@ exports.getAllPosts = async (req, res) => {
         payload: data,
       });
     }
-    return res.status(404).send({message: "Posts not found!"})
+    return res.status(404).send({ message: "Posts not found!" });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -26,7 +26,7 @@ exports.getAllUserPosts = async (req, res) => {
         payload: data,
       });
     }
-    return res.status(404).send({message: "Posts not found!"})
+    return res.status(404).send({ message: "Posts not found!" });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -99,13 +99,7 @@ exports.updatePost = async (req, res) => {
 
 exports.deletePost = async (req, res) => {
   try {
-    const data = {
-      title: req.body.title,
-      creator: req.body.creator,
-      content: req.body.content,
-    };
-
-    const result = await Post.findByIdAndDelete(req.params.id, data);
+    const result = await Post.findByIdAndDelete(req.params.id);
 
     if (result) {
       return res.status(200).send({
@@ -121,7 +115,6 @@ exports.deletePost = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
-
 
 exports.likePost = async (req, res) => {
   try {
@@ -140,12 +133,10 @@ exports.likePost = async (req, res) => {
 
     await post.save();
     res.status(200).json(post);
-    
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
-
 
 exports.dislikePost = async (req, res) => {
   try {
@@ -164,13 +155,12 @@ exports.dislikePost = async (req, res) => {
 
     await post.save();
     res.status(200).json(post);
-
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 
-exports.getAllLikedPosts = async (req,res) => {
+exports.getAllLikedPosts = async (req, res) => {
   try {
     const data = await Post.find({ isLiked: req.params.id });
 
@@ -180,8 +170,7 @@ exports.getAllLikedPosts = async (req,res) => {
         payload: data,
       });
     }
-
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
-}
+};

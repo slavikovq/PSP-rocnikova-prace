@@ -149,6 +149,17 @@
   width: 60%;
 }
 
+.swalButton {
+    background-color: variables.$darker-yellow;
+    color: black;
+    width: 180px;
+    margin-inline: 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+}
+
 @media (max-width: 920px) {
   .edit {
     padding-left: 0;
