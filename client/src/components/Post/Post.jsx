@@ -1,5 +1,4 @@
 import postStyles from "../../scss/Post.module.scss";
-import user from "../../assets/icons/user-yell.svg";
 import like from "../../assets/icons/thumbs-up.svg";
 import dislike from "../../assets/icons/thumbs-down.svg";
 import calendar from "../../assets/icons/calendar.svg";

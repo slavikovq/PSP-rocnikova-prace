@@ -7,7 +7,7 @@ export default function About() {
         <div id="About-Us">
             <div className={aboutStyles.about}>
                 <div className={aboutStyles.aboutBox}>
-                    <img src={about} alt="" />
+                    <img src={about} alt="Vygenerováno ChatGPT (OpenAI, 2025)" />
                 </div>
                 <div className={aboutStyles.aboutBox}>
                     <h6>— plasma peening</h6>

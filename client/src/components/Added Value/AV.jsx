@@ -15,7 +15,7 @@ export default function AV() {
           <div className={avStyles.avCards}>
             <div className={avStyles.avCard}>
               <div>
-                <img src={flexibility} alt="" />
+                <img src={flexibility} alt="Vygenerováno ChatGPT (OpenAI, 2025)" />
                 <h2>flexibility</h2>
               </div>
               <div>
@@ -28,7 +28,7 @@ export default function AV() {
             </div>
             <div className={avStyles.avCard}>
               <div>
-                <img src={efficiency} alt="" />
+                <img src={efficiency} alt="Vygenerováno ChatGPT (OpenAI, 2025)" />
                 <h2>efficiency</h2>
               </div>
               <div>
@@ -41,7 +41,7 @@ export default function AV() {
             </div>
             <div className={avStyles.avCard}>
               <div>
-                <img src={LOC} alt="" />
+                <img src={LOC} alt="Vygenerováno ChatGPT (OpenAI, 2025)" />
                 <h2>low operational cost</h2>
               </div>
               <div>

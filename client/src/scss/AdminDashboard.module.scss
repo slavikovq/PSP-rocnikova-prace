@@ -57,9 +57,8 @@
 }
 
 .statistic:hover {
-  transform: translateY(-6px) scale(1.04);
+  transform: scale(1.04);
   border-color: variables.$darker-yellow;
-  box-shadow: 0 10px 24px rgba(variables.$darker-yellow, 0.2);
 }
 
 .statistic h3 {

@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import signUpStyles from "../../scss/SignUp.module.scss";
 import { useAuth } from "../../context/AuthProvider";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { registerUser } from "../../models/user";
 import { alert } from "../../function/sweetalert"
 

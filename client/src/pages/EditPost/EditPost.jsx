@@ -1,6 +1,6 @@
 import editPostStyles from "../../scss/EditPost.module.scss";
 import AdminBar from "../../components/AdminBar/AdminBar";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";

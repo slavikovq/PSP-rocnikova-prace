@@ -1,5 +1,4 @@
 import teamStyles from "../../scss/Team.module.scss";
-import circle from "../../assets/team-photos/circle.png";
 import slavik from "../../assets/team-photos/slavik.png";
 import bajer from "../../assets/team-photos/bajer.png";
 import kadlec from "../../assets/team-photos/kadlec.png";

@@ -20,7 +20,7 @@
   transform: scale(1.01);
 }
 
-.card h1 {
+.card #title {
   color: variables.$darker-yellow;
   font-size: 1.6rem;
 }
@@ -37,6 +37,10 @@
     rgba(0, 0, 0, 1) 60%,
     rgba(0, 0, 0, 0)
   );
+}
+
+#content h1{
+  font-size: 1.2rem;
 }
 
 #detail {

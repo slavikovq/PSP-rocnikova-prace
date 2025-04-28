@@ -24,7 +24,7 @@ export default function Hero() {
           </div>
         </div>
         <div className={heroStyles.heroBox} id={heroStyles.hb2}>
-          <img src={hero} alt="" className={heroStyles.heroImg}/>
+          <img src={hero} alt="Vygenerováno ChatGPT (OpenAI, 2025)" className={heroStyles.heroImg}/>
         </div>
       </div>
     </>

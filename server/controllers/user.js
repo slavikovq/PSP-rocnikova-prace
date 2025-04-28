@@ -72,6 +72,21 @@ exports.getUser = async (req, res) => {
   }
 };
 
+exports.getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find().select("-password");
+
+    if (!users) {
+      return res.status(404).json({ message: "Users not found!" });
+    }
+
+    res.status(200).send({ message: "Users found!", payload: users });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
+
 exports.getUserById = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
@@ -156,16 +171,3 @@ exports.deleteUser = async (req, res) => {
   }
 };
 
-exports.getAllUsers = async (req, res) => {
-  try {
-    const users = await User.find().select("-password");
-
-    if (!users) {
-      return res.status(404).json({ message: "Users not found!" });
-    }
-
-    res.status(200).send({ message: "Users found!", payload: users });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-};

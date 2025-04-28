@@ -74,7 +74,7 @@ export default function PostCard({ title, creator, dateCreated, content, id }) {
     <>
       <div className={postCardStyles.card}>
         <div>
-          <h1>{title}</h1>
+          <h1 id={postCardStyles.title}>{title}</h1>
           <div
             id={postCardStyles.content}
             dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content) }}

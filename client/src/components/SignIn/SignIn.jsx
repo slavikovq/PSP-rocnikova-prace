@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import signInStyles from "../../scss/SignIn.module.scss";
 import { loginUser } from "../../models/user";
 import { alert } from "../../function/sweetalert";

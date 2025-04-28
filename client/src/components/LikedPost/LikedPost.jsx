@@ -1,15 +1,10 @@
 import likedPostStyles from "../../scss/LikedPost.module.scss";
 import user from "../../assets/icons/user-yell.svg";
-import like from "../../assets/icons/thumbs-up.svg";
-import dislike from "../../assets/icons/thumbs-down.svg";
 import calendar from "../../assets/icons/calendar.svg";
 import { Link } from "react-router-dom";
 import DOMPurify from "dompurify";
 import { getUserById } from "../../models/user";
 import { useState, useEffect } from "react";
-import { useAuth } from "../../context/AuthProvider";
-import { alert } from "../../function/sweetalert";
-import { likePost, dislikePost, getPostById } from "../../models/post";
 
 export default function LikedPost({
   title,
@@ -83,7 +78,6 @@ export default function LikedPost({
           className={likedPostStyles.article}
           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content) }}
         />
-
         <div className={likedPostStyles.postFooter}>
           <Link to={`/article/${id}`}>
             <button id={likedPostStyles.read}>READ FULL ARTICLE</button>

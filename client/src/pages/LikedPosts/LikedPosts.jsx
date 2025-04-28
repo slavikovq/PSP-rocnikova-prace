@@ -1,6 +1,5 @@
 import likedPostsStyles from "../../scss/LikedPosts.module.scss";
 import AdminBar from "../../components/AdminBar/AdminBar";
-import { Link } from "react-router-dom";
 import LikedPost from "../../components/LikedPost/LikedPost";
 import { getAllLikedPosts } from "../../models/post";
 import { useAuth } from "../../context/AuthProvider";

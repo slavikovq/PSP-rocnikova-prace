@@ -21,7 +21,14 @@ export default function PanelEditProfile() {
       }
     }
 
+    if(!formData.email || formData.email === null || formData.email === ""){
+     return alert("error", "Email cannot be empty!")
+    }
+ 
     const res = await editUser(user._id, formData);
+
+    if (res.status === 500) return alert("error", "This email is already in use!");
+
     if (res.status === 200) {
       await fetchUser();
       alert("success", "Your profile was updated!");
